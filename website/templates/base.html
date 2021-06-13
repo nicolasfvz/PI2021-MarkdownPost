@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="/">Gerador de Memes Aleatório</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -18,40 +18,24 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-item nav-link" id="home" href="/">Home</a>
+                    <a class="nav-item nav-link" id="home" href="/">Página inicial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+                    <a class="nav-item nav-link" id="logout" href="/logout">Deslogar</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-item nav-link" id="login" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link" id="singUp" href="/sign-up">Signup</a>
+                    <a class="nav-item nav-link" id="singUp" href="/cadastro">Cadastrar</a>
                 </li>
                 {% endif %}
               </ul>
             </div>
           </div>
     </nav>
-    <!--
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" id="login" href="/login">login</a>
-                <a class="nav-item nav-link" id=singUp" href="singUp">signup</a>
-                <a class="nav-item nav-link" id="logout" href="/logout">logout</a>
-                <a class="nav-item nav-link" id="home" href="/">home</a>
-            </div>
-        </div>
-    </nav>
-    -->
 
-    
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
@@ -69,7 +53,6 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-    
 
     <div class="container">
         {% block content %} {% endblock %}

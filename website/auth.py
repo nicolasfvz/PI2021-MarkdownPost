@@ -11,4 +11,12 @@ auth = Blueprint('auth', __name__)
 @auth.route('/teste', methods=['GET', 'POST'])
 def teste():
     logout_user()
-    return render_template("test.html", user=current_user, top1=9)
+    return render_template("test.html", user=current_user)
+
+@auth.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template("login.html", user=current_user)
+
+@auth.route('/cadastro', methods=['GET', 'POST'])
+def cadastro():
+    return render_template("cadastro.html", user=current_user)

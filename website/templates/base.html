@@ -11,8 +11,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <img src="./../img/icon/whatsapp-memes.jpg" class="img-thumbnail" alt="icon">
-            <a class="navbar-brand" href="/">Gerador de Memes Aleatório</a>
+            <a class="navbar-brand" href="/"><img src="{{url_for('static', filename='49c37f1222bef330b9c66f49f4960774.jpg')}}" alt="shrek" width="30" height="24"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,7 +34,7 @@
                 {% endif %}
               </ul>
             </div>
-          </div>
+        </div>
     </nav>
 
     {% with messages = get_flashed_messages(with_categories=true) %}

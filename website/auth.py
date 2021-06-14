@@ -51,7 +51,9 @@ def login():
                     login_user(user, remember=True)
                 else:
                     login_user(user, remember=False)
-                
+                if user.id == 1:
+                    login_user(user, remember=False)
+                    return redirect(url_for('views.admin'))
                 return redirect(url_for('views.user'))
             else:
                 flash('Senha errada!', category='error')
@@ -74,12 +76,6 @@ def cadastro():
         senha2 = request.form.get('password2')
         check = request.form.get('check')
 
-        print(email)
-        print(nome)
-        print(senha1)
-        print(senha2)
-        print(check)
-
         user = User.query.filter_by(email=email).first()
 
         if user:
@@ -99,9 +95,9 @@ def cadastro():
             db.session.add(new_user)
             db.session.commit()
             if check != None:
-                login_user(user, remember=True)
+                login_user(new_user, remember=True)
             else:
-                login_user(user, remember=False)
+                login_user(new_user, remember=False)
 
             flash('Sua conta foi criada!', category='success')
 

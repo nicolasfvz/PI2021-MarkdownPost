@@ -30,9 +30,6 @@ def teste():
         else:
             flash('Usuario não encontrado!', category='error')
 
-        print(email)
-        print(senha)
-        print(check)
         return render_template("teste.html", user=current_user)
     return render_template("teste.html", user=current_user)
 

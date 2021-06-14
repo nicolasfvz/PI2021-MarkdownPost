@@ -1,7 +1,7 @@
 # PI2021-MemeGenerator
-##Projeto Integrador 301-INFO IFC
+## Projeto Integrador 301-INFO IFC
 
-##Baixar o Repositório no baixe os requerimentos através do pip:
+## Baixar o Repositório no baixe os requerimentos através do pip:
 
 ```bash
 git clone <repo-url>

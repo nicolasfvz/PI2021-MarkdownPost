@@ -1,5 +1,4 @@
-# PI2021-MemeGenerator
-## Projeto Integrador 301-INFO IFC
+# PI2021-MemeGenerator - Projeto Integrador 301-INFO IFC
 
 ## Baixar o Repositório no baixe os requerimentos através do pip:
 

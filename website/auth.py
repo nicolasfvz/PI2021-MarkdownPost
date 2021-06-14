@@ -98,7 +98,10 @@ def cadastro():
             new_user = User(email=email, name=nome, password=generate_password_hash(senha1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(new_user, remember=True)
+            if check != None:
+                login_user(user, remember=True)
+            else:
+                login_user(user, remember=False)
 
             flash('Sua conta foi criada!', category='success')
 

@@ -1,7 +1,43 @@
 {% extends "base.html" %}
 {% block head %}
-
+<style>
+.login-form{
+    border-radius: 20px;
+    padding: 15px 35px;
+}
+</style>
 {% endblock %}
 {% block content%}
-<h1>Cadastro</h1>
+<br>
+<div class="container-fluid">
+    <div class="position-absolute top-50 start-50 translate-middle border border-success bg-light login-form">
+        <h2 class="text-center">Login</h2>
+
+        <form method="POST">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email: </label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <div id="emailHelp" class="form-text">Você está colocando seus dados por contra propria, se acontecer algum problema problema seu!</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputName1" class="form-label">Nome Completo: </label>
+                <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="name">
+            </div>
+            
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Senha: </label>
+                <input type="password" class="form-control" name="password1" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword2" class="form-label">Confirme sua Senha: </label>
+              <input type="password" class="form-control" name="password2" id="exampleInputPassword2">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" name="check" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1" >Lembre-se de mim</label>
+            </div>
+            <button type="submit" class="btn btn-success">Entrar</button>
+        </form>
+    </div>    
+</div>
 {% endblock%}

@@ -1,7 +1,28 @@
 {% extends "base.html" %}
 {% block head %}
-<title>Login</title>
+<style>
+.login-form{
+    border-radius: 20px;
+    padding: 15px 35px;
+}
+</style>
 {% endblock %}
 {% block content%}
+<div class="container-fluid">
+    <div class="position-absolute top-50 start-50 translate-middle border border-success bg-light login-form">
+        <h2 class="text-center">Login</h2>
 
+        <form method="POST">
+            <p class="fw-normal">Nome de Usuário</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Usuário" aria-label="Username">
+            </div>
+            <p class="fw-normal">Senha</p>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="Senha" aria-label="Username">
+            </div>
+            <button type="button" class="btn btn-success">ENTRAR</button>
+        </form>
+    </div>    
+</div>
 {% endblock%}

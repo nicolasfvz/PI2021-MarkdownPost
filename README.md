@@ -9,11 +9,9 @@ git clone <repo-url>
 pip install -r requirements.TXT
 ```
 ## Rodando o programa:
-
+Abra:
 ```bash
-python main.py
+website\index.html
 ```
-
-## Use esse link para acessar o projeto:
-
-Go to `http://127.0.0.1:5000`
+## Preview
+![Preview site](/website/assets/img/preview/preview.png)

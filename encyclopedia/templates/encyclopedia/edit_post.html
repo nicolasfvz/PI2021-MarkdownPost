@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load wiki_extras %}
+
+{% block head %}
+    <title>encyclopedia</title>
+{% endblock %}
+
+{% block body %}
+    <h1 class="display-1">{{title}}</h1>
+    <div>
+        {{post}}
+    </div>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" aria-describedby="title">
+        </div>
+        <div class="form-floating">
+            <label>Title</label>
+            <textarea class="form-control" name="post_info"></textarea>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+    </form>
+{% endblock %}

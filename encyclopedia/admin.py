@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Posts
+from .models import Posts, Users
 
 # Register your models here.
 
@@ -8,3 +8,4 @@ from .models import Posts
 #    list_display = ("id", "title", "post")
 
 admin.site.register(Posts)
+admin.site.register(Users)

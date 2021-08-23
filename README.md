@@ -13,5 +13,7 @@ pip install -r requirements.TXT
 ## Rodando o programa:
 Execute:
 ```bash
+python manage.py migrate
+python manage.py create superuser
 python manage.py runserver
 ```

@@ -1,17 +1,17 @@
-# PI2021-MemeGenerator - Projeto Integrador 301-INFO IFC
+# PI2021-MarkdownPost - Projeto Integrador 301-INFO IFC
 
-## Baixar o Repositório no baixe os requerimentos através do pip:
-
+## Baixar o repositório:
 ```bash
 git clone <repo-url>
 ```
+
+## Baixar os requerimentos através do pip:
 ```bash
 pip install -r requirements.TXT
 ```
+
 ## Rodando o programa:
-Abra:
+Execute:
 ```bash
-website\index.html
+python manage.py runserver
 ```
-## Preview
-![Preview site](/website/assets/img/preview/preview.png)

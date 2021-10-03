@@ -126,3 +126,12 @@ def search(request):
     value = request.GET.get('q', '')
     if (exact_post(value)):
         return HttpResponseRedirect(reverse("title", args=(value,)))
+
+def api(request):
+    value = request.GET.get('q', '')
+    
+    if (exact_post(value)):
+        a = Posts.objects.filter(title=value).first()
+        return HttpResponse(f"{a.json()}")
+    else:
+        return HttpResponse("")

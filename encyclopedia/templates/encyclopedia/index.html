@@ -1,4 +1,6 @@
 {% extends "encyclopedia/layout.html" %}
+{% load static %}
+
 {% block head %}
     <title>encyclopedia</title>
 {% endblock %}
@@ -37,4 +39,6 @@
             <li><a href="{% url 'title' post.title %}">{{post.title}} </a></li>
         {% endfor%}
     </ul>
+
+    <script type="text/javascript" src="{% static 'encyclopedia/index.js'%}"></script>
 {% endblock %}

@@ -1,3 +1,4 @@
+import json
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -128,10 +129,13 @@ def search(request):
         return HttpResponseRedirect(reverse("title", args=(value,)))
 
 def api(request):
-    value = request.GET.get('q', '')
-    
-    if (exact_post(value)):
-        a = Posts.objects.filter(title=value).first()
-        return HttpResponse(f"{a.json()}")
-    else:
-        return HttpResponse("")
+    a = Posts.objects.all()
+    dic = {
+        "title" : []
+    }
+    for i in a:
+        dic["title"].append(i.title)
+
+    json_object = json.dumps(dic)
+    print(json_object)
+    return HttpResponse(json_object)

@@ -7,4 +7,7 @@ register = template.Library()
 
 @register.filter
 def convert_markdown(value):
-    return markdown.markdown(value)
+    a = markdown.markdown(value)
+    new = a.replace("<code>", "<pre>")
+    a = new.replace("</code>", "</pre>")
+    return a

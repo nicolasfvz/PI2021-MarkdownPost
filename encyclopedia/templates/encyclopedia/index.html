@@ -32,14 +32,12 @@
         </div>
       </div>
     </nav>
-    
-    <h1>Posts</h1>
-    <ul>
-        {% for post in post_info %}
-            <li><a href="{% url 'title' post.title %}">{{post.title}} </a></li>
-        {% endfor%}
-    </ul>
-    <div id='postagem'></div>
+    <div class="position-absolute top-15 start-50 translate-middle-x">
+      <h1>Posts</h1>
+    </div>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <div id='postagem'></div>
+    </div>
 
     <script type="text/javascript" src="{% static 'encyclopedia/index.js'%}"></script>
     <link rel="stylesheet" href="{% static 'encyclopedia/main.css'%}">

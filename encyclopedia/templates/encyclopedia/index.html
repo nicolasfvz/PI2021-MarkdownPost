@@ -8,45 +8,7 @@
 
 {% block body %}
 
-  <nav class="navbar navbar-brand navbar-expand-sm navbar-dark bcolor-primary">
-    <div class="container-lg">
-      
-      <a class="navbar-brand" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-hexagon-fill" viewBox="0 0 14 16">
-          <path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/>
-        </svg>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'random' %}">Random Page</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'new_post' %}">New Page</a>
-          </li>
-        </ul>
-
-        <form class="d-flex" action="wiki/search">
-          <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
-          <button class="btn" type="submit"><svg viewBox="2 1 14 14" width="30" height="25"><path fill="white" fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg></button>
-        </form>
-      
-      </div>
-
-    </div>
-  </nav>
-
-  <div class="background1">
-    <br>
+    
     <!-- updates-->
     <main class="container">
       <div id="postagem" class="my-3 p-3 bg-body rounded shadow-sm">
@@ -54,6 +16,6 @@
       </div>
     </main>
 
+
   <script type="text/javascript" src="{% static 'encyclopedia/index.js'%}"></script>
-  
 {% endblock %}

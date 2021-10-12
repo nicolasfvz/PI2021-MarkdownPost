@@ -5,20 +5,12 @@
     padding: 0;
 }
 
-/* 
---bs-primary: #6f42c1;
---bs-secondary: #E88566;
---bs-tertiary: #f8f9fa;
---bs-background: #212529; 
-*/
-
 :root {
     --bs-primary: #0C2D48;
-    --bs-secondary: #E88566;
-    --bs-tertiary: #f8f9fa;
+    --bs-secondary: #f8f9fa;
+    --bs-tertiary: #E88566;
     --bs-background: #0C2D48;
 }
-
 
 .bcolor-primary {
     background-color: var(--bs-primary);
@@ -36,20 +28,13 @@
     background-color: var(--bs-background);
 }
 
-/* https://i.stack.imgur.com/LCCB6.jpg */
-/* http://blueprintcreatives.com/wp-content/uploads/2013/03/pattern.png */
+
 .background1 {
-    /* background-image: url(http://blueprintcreatives.com/wp-content/uploads/2013/03/use_your_illusion_@2X.png); */
-    background-color: var(--bs-background);
-    height: 100vh;
-}
-
-/* AJUSTES */
-
-.navbar-brand {
-    margin-right: 0;
-}
-
-a {
-    text-decoration : none;
+    background-image: url(http://blueprintcreatives.com/wp-content/uploads/2013/03/use_your_illusion_@2X.png); 
+    /* 2° opção https://i.stack.imgur.com/LCCB6.jpg */
+    /* 3° opção background-color: var(--bs-background); */
+    min-height: 100vh;
+    height: auto;
+    background-attachment: fixed;
+    background-position: center;
 }

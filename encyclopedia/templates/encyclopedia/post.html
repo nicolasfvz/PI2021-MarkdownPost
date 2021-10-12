@@ -1,14 +1,15 @@
 {% extends "encyclopedia/layout.html" %}
-
+{% load static %}
 {% load wiki_extras %}
 
 {% block head %}
     <title>encyclopedia</title>
+    <link rel="stylesheet" href="{% static 'encyclopedia/main.css'%}">
 {% endblock %}
 
 {% block body %}
     <h1 class="display-1">{{title}}</h1>
-    <div class="position-absolute top-0 end-0">
+    <div class="">
         <button type="button" class="btn btn-link"><a href="{% url 'edit' title %}">Edit</a></button>
     </div>
     {{post|convert_markdown|safe}}

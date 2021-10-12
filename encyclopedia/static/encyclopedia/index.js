@@ -5,7 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
         let txt = "";
         const lenL = data.title.length; 
         for (let i = 0; i < lenL; i++) {
-            txt += ` <h2 class=""><a href="/wiki/${data.title[i]}">${data.title[i]}</a></h2>`
+            txt += `<a href="/wiki/${data.title[i]}">
+            <div class="d-flex text-muted pt-3"> 
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-gray-dark">@username</strong>
+                    ${data.title[i]}
+                  </p>
+            </div>
+            </a>`
           }
         document.querySelector('#postagem').innerHTML = txt;
     });

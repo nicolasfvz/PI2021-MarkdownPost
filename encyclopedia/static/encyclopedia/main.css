@@ -13,11 +13,12 @@
 */
 
 :root {
-    --bs-primary: #2E3138;
+    --bs-primary: #0C2D48;
     --bs-secondary: #E88566;
     --bs-tertiary: #f8f9fa;
-    --bs-background: #CCC9E7;
+    --bs-background: #0C2D48;
 }
+
 
 .bcolor-primary {
     background-color: var(--bs-primary);
@@ -47,4 +48,8 @@
 
 .navbar-brand {
     margin-right: 0;
+}
+
+a {
+    text-decoration : none;
 }

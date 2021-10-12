@@ -3,6 +3,7 @@
 
 {% block head %}
     <title>encyclopedia</title>
+    <link rel="stylesheet" href="{% static 'encyclopedia/main.css'%}">
 {% endblock %}
 
 {% block body %}
@@ -45,12 +46,14 @@
   </nav>
 
   <div class="background1">
+    <br>
+    <!-- updates-->
+    <main class="container">
+      <div id="postagem" class="my-3 p-3 bg-body rounded shadow-sm">
 
-    <h1>Posts</h1>
-    <div id='postagem'></div>
-
-  </div>
+      </div>
+    </main>
 
   <script type="text/javascript" src="{% static 'encyclopedia/index.js'%}"></script>
-  <link rel="stylesheet" href="{% static 'encyclopedia/main.css'%}">
+  
 {% endblock %}

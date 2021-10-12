@@ -8,7 +8,36 @@
     <h2>Cadastro</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        
+        <div id="div_id_email" class="form-group"> 
+            <label for="id_email" class=" requiredField">E-mail<span class="asteriskField">*</span> </label> 
+            <div class=""> 
+                <input type="email" name="email" placeholder="Endereço de e-mail" autocomplete="email" class="textinput textInput form-control" required="" id="id_email"> 
+            </div> 
+        </div>
+
+        <div id="div_id_username" class="form-group"> 
+            <label for="id_username" class=" requiredField">Nome de usuário<span class="asteriskField">*</span> </label> 
+            <div class=""> 
+                <input type="text" name="username" placeholder="Nome de usuário" autocomplete="username" minlength="1" maxlength="150" class="textinput textInput form-control" required="" id="id_username"> 
+            </div> 
+        </div>
+
+        <div id="div_id_password1" class="form-group"> 
+            <label for="id_password1" class=" requiredField">Senha<span class="asteriskField">*</span> </label> 
+            <div class=""> 
+                <input type="password" name="password1" placeholder="Senha" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password1"> 
+            </div> 
+        </div>
+
+        <div id="div_id_password2" class="form-group"> 
+            <label for="id_password2" class=" requiredField">Senha (novamente)<span class="asteriskField">*</span> </label> 
+            <div class=""> 
+                <input type="password" name="password2" placeholder="Senha (novamente)" class="textinput textInput form-control" required="" id="id_password2"> 
+            </div> 
+        </div>
+        
         <button class="btn btn-success" type="submit">Cadastrar</button>
     </form>
+    
 {% endblock %}

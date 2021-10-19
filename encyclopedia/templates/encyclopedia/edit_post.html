@@ -8,23 +8,41 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="display-1">{{title}}</h1>
-    <div>
-        {{post}}
-    </div>
-    <hr>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" aria-describedby="title">
-        </div>
-        <div class="form-floating">
-            <label>Title</label>
-            <textarea class="form-control" name="post_info"></textarea>
-        </div>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row text-light">
+
+                <div class="col" id="fadeshow1">
+                    <h1 class="display-5 text-center text-break">{{title}}</h1>
+                    <hr>
+                    <div class="p-3 bg-light border rounded-3 mb-3 text-break text-dark">
+                        {{post|convert_markdown|safe}}
+                    </div>
+                </div>
+
+                <div class="col">
+                    
+                    <h1 class="display-5 text-center text-break">
+                        <input type="text" class="form-control bg-transparent text-light border-0 p-0" id="edit_title" autocomplete="off" maxlength="100" value="{{title}}" name="title" aria-describedby="title">
+                    </h1>
+                    <hr>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="18" name="post_info">
+                            {{post|convert_markdown|safe}}
+                        </textarea>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+                <button class="btn bnt-lg btn-outline-light position-relative start-50 translate-middle-x w-50" type="submit">Submit</button>
+            </div>
+
+        </form>
         <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        
-    </form>
+    </div>
 {% endblock %}

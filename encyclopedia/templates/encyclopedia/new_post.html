@@ -8,7 +8,6 @@
 {% endblock %}
 
 {% block body %}
-    
     <div class="container">
         <form method="POST" class="px-5 py-4">
             {% csrf_token %}
@@ -17,7 +16,7 @@
 
                 <div class="mb-3 fs-2">
                     <label class="form-label" for="title">TITLE</label>
-                    <input type="text" id="title" class="form-control form-control-lg" placeholder="Title" name="title">
+                    <input type="text" id="title" maxlength="100" class="form-control form-control-lg" autocomplete="off" placeholder="Title" name="title">
                 </div>
                 
                 <div class="mb-3 fs-3">

@@ -9,7 +9,7 @@
     --bs-primary: #0C2D48;
     --bs-secondary: #f8f9fa;
     --bs-tertiary: #E88566;
-    --bs-background: #0C2D48;
+    --bs-background: #202020;
 }
 
 .bcolor-primary {
@@ -26,6 +26,7 @@
 
 .bcolor-dark {
     background-color: var(--bs-background);
+    color: var(--bs-light);
 }
 
 
@@ -37,4 +38,36 @@
     height: auto;
     background-attachment: fixed;
     background-position: center;
+    padding-top: 4vh;
+}
+
+#edit_title {
+    font-weight: 300; 
+    line-height: 1.2; 
+    text-align: center; 
+    display: inline;
+    font-size: inherit;
+    width: auto;
+}
+
+#edit_title:focus {
+    box-shadow: none;
+}
+
+pre {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 2vh;
+}
+
+@media only screen and (max-width: 1026px) {
+    #fadeshow1 {
+        display: none;
+    }
+}
+
+
+/* TEMPORÁRIO */
+a {
+    text-decoration: none;
 }

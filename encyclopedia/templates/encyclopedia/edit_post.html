@@ -17,7 +17,7 @@
                 <div class="col" id="fadeshow1">
                     <h1 class="display-5 text-center text-break">{{title}}</h1>
                     <hr>
-                    <div class="p-3 bg-light border rounded-3 mb-3 text-break text-dark">
+                    <div class="p-3 bg-light border rounded-3 mb-3 text-break text-dark" style="min-height: 446px;">
                         {{post|convert_markdown|safe}}
                     </div>
                 </div>
@@ -29,9 +29,7 @@
                     </h1>
                     <hr>
                     <div class="mb-3">
-                        <textarea class="form-control" rows="18" name="post_info">
-                            {{post|convert_markdown|safe}}
-                        </textarea>
+                        <textarea class="form-control" style="height:446px" name="post_info">{{post}}</textarea>
                     </div>
                     
                 </div>

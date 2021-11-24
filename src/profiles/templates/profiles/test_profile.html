@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Test profile</title>
+{% endblock %}
+
+{% block body %}
+<p><b>Meus Post: </b>{{profile.get_my_post}}</p>
+<p><b>Meu Numero de Post: </b>{{profile.num_post}}</p>
+<p><b>Seguindo perfis: </b>{{profile.get_following}}</p>
+<p><b>Quem eu to seguindo: </b>{{profile.get_following_users}}</p>
+<p><b>Feed: </b>{{profile.get_my_and_following_posts}}</p>
+<p><b>Sugestões de usuario: </b>{{profile.get_proposals_for_following}}</p>
+<p><b>Seguindo: </b>{{profile.following_count}}</p>
+<p><b>Seguidores: </b>{{profile.get_followers}}</p>
+<p><b>Numero de seguidores: </b>{{profile.followers_count}}</p>
+{% endblock %}

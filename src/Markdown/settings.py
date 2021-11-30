@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/profiles/my'
+
 
 # Application definition
 
@@ -39,7 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My apps
     'posts',
-    'profiles'
+    'profiles',
+    # Auth related
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount'
+]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 MIDDLEWARE = [

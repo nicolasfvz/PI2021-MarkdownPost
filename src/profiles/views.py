@@ -4,7 +4,8 @@ from django.views.generic import TemplateView, View
 from django.http import JsonResponse, request, response, HttpResponseRedirect
 
 # Create your views here.
-
+""" 
+"""
 def profile_Test_view(request):
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profiles/test_profile.html', {'profile':profile})

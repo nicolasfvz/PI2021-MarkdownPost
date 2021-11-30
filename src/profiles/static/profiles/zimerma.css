@@ -135,7 +135,7 @@ a img:hover {
 
 /* for main section */
 .active-cont {
-    margin-left: -33.33334%;
+    margin-left: -33.333333333333333333333333333333333334%;
 }
 
 
@@ -164,16 +164,16 @@ img.logo{
 
     margin: auto;
 
-    background-color: yellowgreen;
+    border: 1px solid #2f0;
 }
 
-#hadcontainer .post{
+#hadcontainer .card{
     margin: 0 auto;
 
-    width: 90%;
+    width: 60%;
     min-height: 10px;
 
-    padding: 10px;
+    padding: 15px;
 
     /* background-color: #36465d; */
     background-color: var(--dd);
@@ -181,12 +181,40 @@ img.logo{
 }
 
 
-#hadcontainer .post .avatar{
+#hadcontainer .card .profile{
     display: flex;
+    align-items: center;
 
-    margin-top: 20px;
-
+    border: 1px solid #d0f;
 }
+
+#hadcontainer .card .profile img{
+    width: 55px;
+    height: 55px;
+
+    border-radius: 69%;
+}
+
+#hadcontainer .card .profile .username{
+    margin-left: 10px;
+}
+
+#hadcontainer .card article{
+    font-size: 80%;
+    margin-top: 10px;
+}
+
+#hadcontainer .card .postinfo{
+    font-size: 80%;
+}
+
+
+
+
+
+
+
+
 
 
 

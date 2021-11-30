@@ -45,4 +45,4 @@ class MyProfileData(View):
                 'bio' : p.bio
             }
             profiles_to_follow_list.append(profile_item)
-        return JsonResponse({'data' : profiles_to_follow_list})
+        return JsonResponse({'profiles_to_follow_list' : profiles_to_follow_list, 'username' : profile.user.username, 'avatar' : profile.avatar.url, 'followers' : profile.followers_count, 'following' : profile.following_count})

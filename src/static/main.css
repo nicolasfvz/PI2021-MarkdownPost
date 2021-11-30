@@ -1,0 +1,28 @@
+.avatar{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+:root {
+    --primary: #e63946;
+    --secondary: #dcdee0;
+    --background: #6b705c;
+
+    --border-radius-val: 0;
+    --gap-col: 14px;
+
+    --aa: #101010;
+    --bb: #151521;
+    --cc: #1c1c25;
+    --dd: #2f334e;
+    --ee: #3bba9c;
+    
+    --mainH: 81vh;
+
+
+}
+.avatarPicture{
+    width: 200px;
+    height: 200px;
+    border-radius: 60%;
+}

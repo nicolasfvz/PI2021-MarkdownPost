@@ -13,7 +13,24 @@
 */
 
 :root {
-    --bs-primary: #0C2D48;
+    --bs-primary: #:root {
+        --primary: #e63946;
+        --secondary: #dcdee0;
+        --background: #6b705c;
+    
+        --border-radius-val: 0;
+        --gap-col: 14px;
+    
+        --aa: #101010;
+        --bb: #151521;
+        --cc: #1c1c25;
+        --dd: #2f334e;
+        --ee: #3bba9c;
+        
+        --mainH: 81vh;
+    
+    
+    };
     --bs-secondary: #E88566;
     --bs-tertiary: #f8f9fa;
     --bs-background: #0C2D48;

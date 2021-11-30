@@ -9,6 +9,9 @@ def profile_Test_view(request):
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profiles/test_profile.html', {'profile':profile})
 
+class MainPageView(TemplateView):
+    template_name = 'profiles/main.html'
+
 class MyProfileView(TemplateView):
     template_name = 'profiles/my_profile.html'
     

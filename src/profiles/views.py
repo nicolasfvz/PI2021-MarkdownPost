@@ -6,10 +6,13 @@ from django.contrib.auth.models import AnonymousUser
 from django.urls import reverse
 
 # Create your views here.
-# TODO Backend : Criar relação entre usuario e outros usuarios
-# Backend : Annonymous error MyProfileData
-# Frontend : Criar pagina de perfil aceitavel
+# TODO 
+# Backend : Criar relação entre usuario e outros usuarios
+# Backend : Criar rotas do post
+# Fontend : Criar pagina post e editar post
+# Frontend : Criar pagina de feed aceitavel
 # Frontend : Estilizar os accounts /base.html
+
 
 def profile_Test_view(request):
     profile = Profile.objects.get(user=request.user)
@@ -53,7 +56,12 @@ class MyProfileData(View):
                     'bio' : p.bio
                 }
                 profiles_to_follow_list.append(profile_item)
-            return JsonResponse({'profiles_to_follow_list' : profiles_to_follow_list, 'username' : profile.user.username, 'avatar' : profile.avatar.url, 'followers' : profile.followers_count, 'following' : profile.following_count})
+            return JsonResponse({'profiles_to_follow_list' : profiles_to_follow_list, 
+                                 'username' : profile.user.username, 
+                                 'avatar' : profile.avatar.url, 
+                                 'followers' : profile.followers_count, 
+                                 'following' : profile.following_count,
+                                 'bio' : profile.bio})
         
             
         

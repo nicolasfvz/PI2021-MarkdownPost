@@ -2,122 +2,139 @@
 {% load static %}
 
 {% block head %}
-    <title>Meu Perfil</title>
-    <script type="text/javascript" src="{% static 'profiles/profiles_my.js'%}"></script>
-    <link rel="stylesheet" href="{% static 'profiles/profiles_my.css' %}">
+<title>Meu Perfil</title>
+<script type="text/javascript" src="{% static 'profiles/profiles_my.js'%}"></script>
+<link rel="stylesheet" href="{% static 'profiles/profiles_my.css' %}">
 {% endblock %}
 
 {% block body %}
 <!-- HEADER -->
-<header id="header" class="sticky-xl-top">
-  <div class="container-fluid">
-    <nav class="navbar navbar-expand-sm navbar-dark justify-content-between">
-      <div class="row">
-        <div class="col">
-          <button class="navbar-toggler" id="toggle-profile-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="col navbar-brand">
-          
-        </div>
-      </div>
+<header class="sticky-lg-top">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
 
-      <button class="navbar-toggler" type="button" 
-      data-bs-toggle="collapse" 
-      data-bs-target="#navbarSupportedContent" 
-      aria-controls="navbarSupportedContent" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler collapsed d-block" id="expandProfile" type="button" data-bs-toggle="collapse"
+        data-bs-target="#profile" aria-controls="profile" aria-expanded="false" aria-label="Show profile">
+        <img src="{% static 'profiles/assets/list.svg' %}" alt="Show Profile">
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
+      <h1 class="navbar-brand fw-bold d-none d-sm-block" id="title">
+        <a href="#">Markdown Post</a>
+      </h1>
+
+      <button class="navbar-toggler collapsed" id="expandNavbar" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbar-options" aria-controls="navbar-options" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <img src="{% static 'profiles/assets/arrow-bar-down.svg' %}" alt="Expand">
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbar-options">
+        <ul class="navbar-nav text-end">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Random Page</a>
+            <a href="#" class="nav-link">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">New Post</a>
+            <a href="#" class="nav-link">RANDOM PAGE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a href="#" class="nav-link">NEW POST</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn mt-lg-auto mt-2" id="btn-logout">LOGOUT</button>
           </li>
         </ul>
       </div>
 
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
 
 <!-- MAIN -->
-<div class="container-fluid">
-  <div class="row">
+<main>
 
-  <!-- PROFILE -->
-  <div id="sidebar" class="col-md-4 mg-left_sidebar">
-    <div id="profileInfo" class="d-flex flex-md-column mt-4">
-      <div id="foto">
-        
-      </div>
-      <div id="profileData" class="d-flex flex-md-column align-items-center">
-        <span id="username" class="display-6 mb-3"></span>
-        <span id="followers"></span>
-        <span id="following"></span>
-      </div>
-      <div id="profileOptions" class="d-flex flex-sm-column align-items-center">
-        <button type="button" class="btn btn-primary">Change Username</button>
-        
-        <!-- Botão do Modal-->
-        <button type="button" class="btn btn-secondary" id="recomendacoes-butao" data-bs-toggle="modal" data-bs-target="#Modal">Recomendações</button>
-  
-      </div>
-    </div>
-    
-  </div>
+  <div class="container">
+    <div class="row">
+      <section id="profile" class="col-lg-3 collapse show">
+        <h2 class="text-center display-6 fw-normal">PROFILE</h2>
+        <div class="d-flex flex-lg-column flex-column flex-sm-row justify-content-between align-items-center">
 
-  <!-- POSTS -->
-  <main id="main" class="col-md">
+          <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2">
+            <div id="foto">
 
-
-  </main>
-
-  </div>
-</div>
-
-
-<!-- JAVASCRIPT -->
-<script>
-      var sidebar = document.querySelector("#sidebar")
-      var container = document.querySelector("#main")
-      document.querySelector("#toggle-profile-button").addEventListener("click", () => {
-          container.classList.toggle("active-nav")
-          sidebar.classList.toggle("active-cont")
-      })
-</script>
-    
-    
-    <!-- Modal -->
-    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="ModalLabel">Recomendações</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
           </div>
 
-          <!-- Content -->
-          <div class="modal-body" id="to-follow-modal-content">
-
-            <!-- Each item -->
-
-
-            <div class="text-center" id="spiner-splendi">
-              <div class="spinner-border" role="status" id="spiner-itself">
-              </div>
+          <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2">
+            <span id="username" class="align-self-center fs-5"></span>
+            <div class="d-flex justify-content-around">
+              <span style='margin-right:5px' id="followers"></span>
+              <span> | </span>
+              <span style='margin-left:5px' id="following"></span>
             </div>
+            <span id="userbio" class="font-monospace lh-sm"></span>
+          </div>
 
-            <!-- Exemplo de sugestão
+          <div class="d-flex flex-column mt-lg-2 mt-2 me-sm-2" id="profileOptions">
+            <button>EDIT PROFILE</button>
+            <button type="button" class="" id="recomendacoes-butao" data-bs-toggle="modal"
+              data-bs-target="#Modal">SUGGESTION</button>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="posts" class="col">
+        <!--list group💡-->
+        <h2>POSTS</h2>
+        <div>
+          <table id="post-table">
+            <tr>
+              <th>IMG</th>
+              <th>@user</th>
+              <th>Post#1</th>
+            </tr>
+            <tr>
+              <th>IMG</th>
+              <th>@user</th>
+              <th>Post#2</th>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</main>
+
+
+<footer class="mt-auto">
+  <div class="container">
+    <h2>FOOTER</h2>
+  </div>
+</footer>
+
+
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Recomendações</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Content -->
+      <div class="modal-body" id="to-follow-modal-content">
+
+        <!-- Each item -->
+
+
+        <div class="text-center" id="spiner-splendi">
+          <div class="spinner-border" role="status" id="spiner-itself">
+          </div>
+        </div>
+
+        <!-- Exemplo de sugestão
             <div class="d-flex text-muted pt-3">
                 <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
                 <p class="pb-3 mb-0 small lh-sm border-bottom">
@@ -128,19 +145,18 @@
 
             -->
 
-            <!-- Spiner splandi garai
+        <!-- Spiner splandi garai
             <div class="text-center">
                 <div class="spinner-border" role="status">
                 </div>
             </div>
             -->
 
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
       </div>
+
+
     </div>
+  </div>
+</div>
+
 {% endblock %}

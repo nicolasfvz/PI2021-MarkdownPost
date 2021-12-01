@@ -10,7 +10,7 @@ class Profile(models.Model):
     """
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatars', default='avatar.jpg')
+    avatar = models.ImageField(upload_to='avatars')
     background = models.ImageField(upload_to='backgrounds', default='background.jpg')
     following = models.ManyToManyField(User, related_name='following', blank=True)
     bio = models.TextField(default="no bio...")

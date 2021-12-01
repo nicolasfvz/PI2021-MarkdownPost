@@ -7,7 +7,6 @@ from profiles.models import Profile
 class Post(models.Model):
     """This class represent the Posts Table in the Database
     """
-    picture = models.ImageField(upload_to='images', blank=True)
     title = models.CharField(max_length=255)
     body = models.TextField()
     liked = models.ManyToManyField(User, default=None, blank=True)

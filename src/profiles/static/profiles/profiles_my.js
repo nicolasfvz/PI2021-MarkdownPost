@@ -7,17 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const followersBody = document.getElementById('followers');
     const followingBody = document.getElementById('following');
     const pictureBody = document.getElementById('foto');
+
      $.ajax({
         type: 'GET',
         url: '/profiles/my-profile-json/',
         success: function(response){
-            
+            console.log(response)
+
+        /*
+        * Constantes pegadas do json
+        */     
         const username = response.username
         const picture = response.avatar
         const followers = response.followers
         const following = response.following
         
-        console.log(picture)
         usernameBody.innerHTML = `@${username}`
         pictureBody.innerHTML = `<img src="${picture}" id="profilePic" class="avatarPicture" alt="profilepicture"></img>`
         followersBody.innerHTML = `${followers} Seguidores`
@@ -48,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(function() {
 
                         spinnerModalBody.innerHTML = ''
-                        console.log(response)
+                        
                         data.forEach(element => {
                             console.log(element.avatar)
                             toFollowModalBody.innerHTML += `

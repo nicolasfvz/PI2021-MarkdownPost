@@ -1,85 +1,76 @@
 
+/**
+ * Wait until the page is loades
+ */
 document.addEventListener('DOMContentLoaded', function() {
+    
     /**
-     * Carregar a pagina inteira via javascript
+     * Get every element that is going to be modified
      */
     const usernameBody = document.getElementById('username');
     const followersBody = document.getElementById('followers');
     const followingBody = document.getElementById('following');
     const pictureBody = document.getElementById('foto');
+    const postBody = document.getElementById('postsItems');
 
-     $.ajax({
+    /**
+     *  Send a request to get the data
+     */
+    $.ajax({
         type: 'GET',
         url: '/profiles/my-profile-json/',
         success: function(response){
             console.log(response)
 
-        /*
-        * Constantes pegadas do json
-        */     
-        const username = response.username
-        const picture = response.avatar
-        const followers = response.followers
-        const following = response.following
-        
-        usernameBody.innerHTML = `@${username}`
-        pictureBody.innerHTML = `<img src="${picture}" id="profilePic" class="avatarPicture" alt="profilepicture"></img>`
-        followersBody.innerHTML = `${followers} Seguidores`
-        followingBody.innerHTML = `${following} Seguindo`
+            /*
+            * Negocio do Profile
+            */     
+            const username = response.username
+            const picture = response.avatar
+            const followers = response.followers
+            const following = response.following
+            
+            usernameBody.innerHTML = `@${username}`
+            pictureBody.innerHTML += `<img src="${picture}" id="profilePic" class="AAAAAAAA" alt="profilepicture"></img>`
+            // pictureBody.innerHTML += `<img class="cogOverlay" src="https://dictionary.cambridge.org/pt/images/thumb/cog_noun_002_07459.jpg?version=5.0.199" alt="Editar Perfil">`
+            followersBody.innerHTML = `${followers} Seguidores`
+            followingBody.innerHTML = `${following} Seguindo`
+            
+            /**
+             * Negocio do Post
+             */
+
+            const feed = response.feed
+            console.log(feed)
+            feed.forEach(element => {
+                postBody.innerHTML += `
+                <div class="postBlock border-top border-bottom">
+                    <a href="#">
+                        <div class="postElements d-flex py-3">
+                            <div class="postUserPic">
+                              <img src="${element.avatar}" alt="icon">
+                            </div> 
                 
-            
-            
+                            <div class="d-flex">
+                              <p class="medium my-auto"><strong>@${element.author}</strong></p>
+                            </div>
+                
+                            <div class="d-flex flex-grow-1 justify-content-center">
+                              <h3 class="fs-5 my-auto">${element.title}</h3>
+                            </div>	
+
+                        </div>
+                    </a>
+                </div>
+              `
+            })
+
         },
         error: function(response){
             console.log(error)
         }
     })
     
-    /* Negocio do botão */ 
-    const butao = document.getElementById('recomendacoes-butao');
-    const toFollowModalBody = document.getElementById('to-follow-modal-content');
-    const spinnerModalBody = document.getElementById('spiner-splendi');
-    let toFollowLoaded = false
-    
-    butao.addEventListener('click', ()=>{
-        $.ajax({
-            type: 'GET',
-            url: '/profiles/my-profile-json/',
-            success: function(response){
-                if(!toFollowLoaded){
-                    const data = response.profiles_to_follow_list
-
-                    setTimeout(function() {
-
-                        spinnerModalBody.innerHTML = ''
-                        
-                        data.forEach(element => {
-                            console.log(element.avatar)
-                            toFollowModalBody.innerHTML += `
-                            <div class="d-flex text-muted pt-3">
-                                <div class="row mb-2 align-items-center">
-                                    <div class="col2">
-                                        <img src="${element.avatar}" class="avatar" alt="${element.username}">
-                                    </div>
-                                </div>
-                                <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                  <strong class="d-block text-gray-dark"> @${element.username}</strong>
-                                   ${element.bio}
-                                </p>
-                            </div>
-                            `
-                        });
-
-                    }, 2000)
-                    toFollowLoaded = true
-                }
-                
-            },
-            error: function(response){
-                console.log(error)
-            }
-        })
-    })
     
 })
 

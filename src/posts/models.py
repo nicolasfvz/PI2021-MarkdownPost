@@ -25,6 +25,10 @@ class Post(models.Model):
     @property
     def get_liked(self):
         return self.liked.all()
+    
+    @property
+    def get_autor(self):
+        return Profile.objects.get(pk=self.author)
 
     def like_count(self):
         return self.liked.all().count()

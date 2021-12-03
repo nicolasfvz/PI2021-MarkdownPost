@@ -1,21 +1,51 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
 
-{% block head %}<title>Sign Out</title>{% endblock %}
+{% block head %}
+    <title>Sign Out</title>
+    <link rel="stylesheet" href="{% static 'form_css.css' %}">
+{% endblock %}
 
 {% block body %}
-<h1>{% trans "Sign Out" %}</h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+  <main class="container">
+    <div class="row">
+      <div class="col">
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
+        <h1 class="display-1 text-center">{% trans "Sign Out" %}</h1>
+        <p id="site-description" class="fs-4">
+          {% trans 'Are you sure you want to sign out?' %}
+        </p>
+
+        
+        <form method="post" action="{% url 'account_logout' %}" class="d-flex flex-column" id="enter-options">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          {% endif %}
+          <button type="submit">{% trans 'Sign Out' %}</button>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-auto">
+		<div class="container">
+			<div class="row">
+
+				<div class="col">
+					<h4>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</h4>
+				</div>
+				<div class="col">
+					<a href="https://github.com/nicolasfvz/PI2021-MarkdownPost" target="_blank">
+						<img class="float-end" src="./../../static/github.svg" alt="GitHub">
+					</a>
+				</div>
+				
+			</div>
+		</div>
+	</footer>
 
 
 {% endblock %}

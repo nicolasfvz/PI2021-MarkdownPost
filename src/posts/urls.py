@@ -1,10 +1,15 @@
 from django.urls import path
 
-from . import views
+from .views import (
+    index,
+    post,
+    api
+)
 
 app_name = 'posts'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('api', views.api, name='api')
+    path('', index, name='index'),
+    path('<str:profile>/<str:title>/', post, name='post'),
+    path('api/', api, name='api')
 ]

@@ -1,22 +1,39 @@
 import json
+from django.contrib.auth.models import User
 from django.shortcuts import render
-from django.http.response import HttpResponse, HttpResponseRedirect
+from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
+
+from profiles.models import Profile
 
 from .models import Post
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'posts/main.html', {'hello' : 'hello world'})
+    if not request.user.is_authenticated:
+            return None
+    else:
+        return render(request, 'posts/main.html', {'hello' : 'hello world'})
 
+def post(request, profile, title):
+    if not request.user.is_authenticated:
+            return None
+    else:
+        return render(request, 'posts/post.html', {'perfil': profile, 'titulo':title})
+"""
+"""
 def api(request):
-    a = Post.objects.all()
-    dic = {
-        "title" : []
-    }
-    for i in a:
-        dic["title"].append(i.title)
-
-    json_object = json.dumps(dic)
-    print(json_object)
-    return HttpResponse(json_object)
+    profileGet = request.GET.get('profile', '')
+    postGet = request.GET.get('post', '')
+    
+    profile = Profile.objects.get(user__username=profileGet)
+    
+    qs = Post.objects.filter(author=profile.pk).filter(title=postGet)
+    data = {}
+    for post in qs:
+        data['title'] = post.title
+        data['body'] = post.body
+        data['updated'] = post.updated
+        data['created'] = post.created
+        
+    return JsonResponse({'post' : data})

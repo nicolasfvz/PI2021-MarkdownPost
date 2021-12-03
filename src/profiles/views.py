@@ -8,13 +8,13 @@ from django.urls import reverse
 # Create your views here.
 # TODO 
 # Backend : Criar relação entre usuario e outros usuarios
-# Backend : Criar rotas do post
 # Fontend : Criar pagina post e editar post
-# Frontend : Criar pagina de feed aceitavel
 # Frontend : Estilizar os accounts /base.html
 
 
 def profile_Test_view(request):
+    if not request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('mainpage:index'))
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profiles/test_profile.html', {'profile':profile, 'testando': 'testaaaaaa'})
 
@@ -43,7 +43,7 @@ def RotaDeTesteDoKrapp(request):
 class MyProfileData(View):
     def get(self, *args, **kwargs):
         if not self.request.user.is_authenticated:
-            return None
+            return HttpResponseRedirect(reverse('mainpage:index'))
         else:
             profile = Profile.objects.get(user=self.request.user)
             qs = profile.get_proposals_for_following()
@@ -56,12 +56,23 @@ class MyProfileData(View):
                     'bio' : p.bio
                 }
                 profiles_to_follow_list.append(profile_item)
+            
+            qsfeed = profile.get_my_and_following_posts()
+            feedReturn = []
+            for post in qsfeed:
+                postdict = {}
+                postdict['title'] = post.title
+                postdict['author'] = post.author.user.username
+                postdict['avatar'] = post.author.avatar.url
+                feedReturn.append(postdict)
+                
             return JsonResponse({'profiles_to_follow_list' : profiles_to_follow_list, 
                                  'username' : profile.user.username, 
                                  'avatar' : profile.avatar.url, 
                                  'followers' : profile.followers_count, 
                                  'following' : profile.following_count,
-                                 'bio' : profile.bio})
+                                 'bio' : profile.bio,
+                                 'feed': feedReturn})
         
             
         

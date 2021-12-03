@@ -29,6 +29,10 @@ ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = '/profiles/my'
 
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_UNIQUE = True
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # Application definition
 
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     # My apps
     'posts',
     'profiles',
+    'mainpage',
     # Auth related
     'django.contrib.sites',
     'allauth',
@@ -138,7 +143,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ 
     BASE_DIR / 'static',
     BASE_DIR / 'posts' / 'static',
-    BASE_DIR / 'profiles' / 'static'
+    BASE_DIR / 'profiles' / 'static',
+    BASE_DIR / 'mainpage' / 'static'
 ]
 
 MEDIA_URL = '/media/'

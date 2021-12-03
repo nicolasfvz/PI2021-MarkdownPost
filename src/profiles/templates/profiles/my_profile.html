@@ -40,7 +40,7 @@
             <a href="#" class="nav-link">NEW POST</a>
           </li>
           <li class="nav-item">
-            <button class="btn mt-lg-auto mt-2" id="btn-logout">LOGOUT</button>
+            <a href="{% url 'account_logout' %}"><button class="btn mt-lg-auto mt-2" id="btn-logout">LOGOUT</button></a>
           </li>
         </ul>
       </div>
@@ -54,87 +54,122 @@
 
   <div class="container">
     <div class="row">
-      <section id="profile" class="col-lg-3 collapse show">
+      <section id="profile" class="col-lg-3 collapse show balacobaco">
         <h2 class="text-center display-6 fw-normal">PROFILE</h2>
         <div class="d-flex flex-lg-column flex-column flex-sm-row justify-content-between align-items-center">
 
-          <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2">
+          <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <div id="foto">
-
+              
+              <!-- js injection -->
             </div>
           </div>
+          <hr class="w-100"><br>
 
-          <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2">
-            <span id="username" class="align-self-center fs-5"></span>
-            <div class="d-flex justify-content-around">
-              <span style='margin-right:5px' id="followers"></span>
-              <span> | </span>
-              <span style='margin-left:5px' id="following"></span>
+          <div class="d-flex flex-column mx-3 mx-lg-auto">
+            <span id="username" class="align-self-center fs-5">@FULANO</span>
+            <div id="Infos" class="d-flex justify-content-around">
+              <span id="followers"></span>
+              <span class="mx-2">|</span>
+              <span id="following"></span>
             </div>
             <span id="userbio" class="font-monospace lh-sm"></span>
           </div>
 
-          <div class="d-flex flex-column mt-lg-2 mt-2 me-sm-2" id="profileOptions">
-            <button>EDIT PROFILE</button>
-            <button type="button" class="" id="recomendacoes-butao" data-bs-toggle="modal"
-              data-bs-target="#Modal">SUGGESTION</button>
+          <div class="d-flex flex-column" id="profileOptions">
+            <button>SUGGESTIONS</button>
           </div>
 
         </div>
       </section>
+      
+      <section id="posts" class="col balacobaco">
+        <h2 class="text-center">POSTS</h2>
+        <div id="postsItems" class="d-flex flex-column">
 
-      <section id="posts" class="col">
-        <!--list group💡-->
-        <h2>POSTS</h2>
-        <div>
-          <table id="post-table">
-            <tr>
-              <th>IMG</th>
-              <th>@user</th>
-              <th>Post#1</th>
-            </tr>
-            <tr>
-              <th>IMG</th>
-              <th>@user</th>
-              <th>Post#2</th>
-            </tr>
-          </table>
         </div>
       </section>
+
     </div>
   </div>
 
 </main>
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Coloca aqui o interior do modal-->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">@</span>
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div> 
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupFile01">Avatar</label>
+          <input type="file" class="form-control" id="inputGroupFile01">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-text">Bio</span>
+          <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer class="mt-auto">
   <div class="container">
-    <h2>FOOTER</h2>
+    <div class="row">
+
+      <div class="col">
+        <h4>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</h4>
+      </div>
+      <div class="col">
+        <a href="https://github.com/nicolasfvz/PI2021-MarkdownPost" target="_blank">
+          <img class="float-end" src="{% static 'profiles/assets/github.svg' %}" alt="GitHub">
+        </a>
+      </div>
+      
+    </div>
   </div>
 </footer>
 
 
 <!-- Modal -->
+<!--
 <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="ModalLabel">Recomendações</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+      </div>-->
 
       <!-- Content -->
-      <div class="modal-body" id="to-follow-modal-content">
+      <!--
+      <div class="modal-body" id="to-follow-modal-content">-->
 
         <!-- Each item -->
-
+<!--
 
         <div class="text-center" id="spiner-splendi">
           <div class="spinner-border" role="status" id="spiner-itself">
           </div>
         </div>
 
-        <!-- Exemplo de sugestão
+         Exemplo de sugestão
             <div class="d-flex text-muted pt-3">
                 <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
                 <p class="pb-3 mb-0 small lh-sm border-bottom">

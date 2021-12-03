@@ -79,7 +79,7 @@
           </div>
 
           <div class="d-flex flex-column" id="profileOptions">
-            <button data-bs-toggle="modal" data-bs-target="#suggestionsModal" >SUGGESTIONS</button>
+            <button id="recomendacoes-butao" data-bs-toggle="modal" data-bs-target="#suggestionsModal" >SUGGESTIONS</button>
           </div>
 
         </div>
@@ -136,18 +136,25 @@
 <!-- Modal Sugestions-->
 <div class="modal fade" id="suggestionsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Sugestions</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <div id="profileSuggestions" class="d-flex flex-column">
+
+            </div>
+          </div>
+            <!-- Colocar o footer aqui, se quieser-->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-light btn-outline-dark">Follow</button>
+          </div>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-        <!-- Colocar o footer aqui, se quieser-->
-      <div class="modal-footer">
-      </div>
-    </div>
+    </form> 
   </div>
 </div>
 

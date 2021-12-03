@@ -22,6 +22,9 @@ def MyProfileView(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('profiles:index'))
     else:
+        if request.method == 'POST':
+            a = request.POST["checkbox1"]
+            return HttpResponseRedirect(reverse('profiles:index'))
         return render(request, 'profiles/my_profile.html')
 
 class MainPageView(TemplateView):

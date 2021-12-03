@@ -145,6 +145,12 @@ main .container .row section {
     color: var(--bs-dark);
 }
 
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 60%;
+}
+
 
 /* CLASSES */
 .nav-link:hover {
@@ -195,6 +201,26 @@ main .container .row section {
     vertical-align: middle;
 }
 
+.modal-profile {
+    min-height: 70px;
+}
+
+.modal-profile button {
+    background: transparent;
+    border-radius: 0.25rem;
+    border: 2px solid var(--primary);
+    padding: 0 5px;
+    transition: var(--transition-time);
+}
+
+.modal-profile button:hover {
+    color: var(--bs-light);
+    background: var(--primary);
+}
+
+.modal-profile:hover {
+    background-color: #eee;
+}
 
 /* RESPONSIVE */
 @media (max-width:991.98px) {
@@ -310,8 +336,9 @@ main .container .row section {
     background-image: url('https://media.discordapp.net/attachments/616695378388975636/916178254472314950/COG.png');
 }
 
+/* TODO adicionar glassmorfismo pra adicionar blur na foto de fundo */
 #foto .overlay:hover{
-    opacity: 0.6;
+    opacity: 0.7;
 
 }
 
@@ -324,16 +351,16 @@ main .container .row section {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
-  }
+}
 
 
 
 
 
+/* 
 
 
-
-/* !important !important !important !important !important !important !important !important !important !important !important !important
+!important !important !important !important !important !important !important !important !important !important !important !important
 #caralhoeuodeiobootstrapzimmermaparadecolocaressasmerdaaaaaaaa  !important{ !important !important !important !important !important !important !important !important !important !important !important
     width: 100px !important;  !important !important !important !important !important !important !important !important !important !important !important
     height: 100px  !important; !important !important !important !important !important !important !important !important !important !important !important
@@ -342,16 +369,16 @@ main .container .row section {
      !important !important !important !important !important !important !important !important !important !important !important
 } !important !important !important !important !important !important !important !important !important !important !important
 
+
+
+
+
+
+
+
+
+
  */
-
-
-
-
-
-
-
-
-
 
 
 

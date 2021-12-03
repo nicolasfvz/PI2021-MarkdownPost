@@ -149,8 +149,15 @@ main .container .row section {
     word-break: break-word;
 }
 
-#postOptions {
+/* #postOptions {
+    position: absolute;
     bottom: 0;
+    width: 95%;
+} */
+
+#postOptions button {
+    background-color: var(--primary);
+    color: var(--bs-white);
 }
 
 /* CLASSES */

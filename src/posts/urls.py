@@ -9,7 +9,7 @@ from .views import (
 app_name = 'posts'
 
 urlpatterns = [
-    path('', index, name='index'),
     path('<str:profile>/<str:title>/', post, name='post'),
+    path('', index, name='index'),
     path('api/', api, name='api')
 ]

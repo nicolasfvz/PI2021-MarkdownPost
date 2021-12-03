@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const followersBody = document.getElementById('followers');
     const followingBody = document.getElementById('following');
     const pictureBody = document.getElementById('foto');
+    const bioBody = document.getElementById('userbio');
     const postBody = document.getElementById('postsItems');
 
     /**
@@ -29,12 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const picture = response.avatar
             const followers = response.followers
             const following = response.following
+            const bio = response.bio
             
             usernameBody.innerHTML = `@${username}`
+
             pictureBody.innerHTML += `<img src="${picture}" id="profilePic" class="AAAAAAAA" alt="profilepicture"></img>`
-            // pictureBody.innerHTML += `<img class="cogOverlay" src="https://dictionary.cambridge.org/pt/images/thumb/cog_noun_002_07459.jpg?version=5.0.199" alt="Editar Perfil">`
+            pictureBody.innerHTML += `
+            <div class="overlay">
+              <a href="#" class="icon">
+                <i class="fa fa-user"></i>
+              </a>
+            <div>`
+
             followersBody.innerHTML = `${followers} Seguidores`
             followingBody.innerHTML = `${following} Seguindo`
+            bioBody.innerHTML = `${bio}`
             
             /**
              * Negocio do Post
@@ -45,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             feed.forEach(element => {
                 postBody.innerHTML += `
                 <div class="postBlock border-top border-bottom">
-                    <a href="#">
+                    <a href="/posts/${element.author}/${element.title}">
                         <div class="postElements d-flex py-3">
                             <div class="postUserPic">
                               <img src="${element.avatar}" alt="icon">
@@ -64,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
               `
             })
+            /**
+             * Negocio da sugestoes
+             */
 
         },
         error: function(response){

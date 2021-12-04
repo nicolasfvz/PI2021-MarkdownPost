@@ -1,6 +1,6 @@
 .vscode/
 __pycache__/
 *.pyc
-avatars/*
-backgrounds/*
+src/media/avatars/*
+src/media/backgrounds/*
 db.*

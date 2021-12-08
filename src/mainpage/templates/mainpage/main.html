@@ -23,24 +23,19 @@
         </p>
 
         <div id="enter-options" class="d-flex flex-column align-items-center">
-          
-          <div class="row">
-            <div class="col">
-              <a href="{% url 'account_login' %}" >
-                <button>LOGIN</button>
-              </a>
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="col">
-              <a href="{% url 'account_signup' %}" >
-                <button>CADASTRO</button>
-              </a>
-            </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <a href="{% url 'account_login' %}">
+              <button>LOGIN</button>
+            </a>
           </div>
-            
           
+          <div class="d-flex flex-column align-items-center">
+            <a href="{% url 'account_signup' %}">
+              <button>CADASTRO</button>
+            </a>
+          </div>
 
 
         </div>

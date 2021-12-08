@@ -53,11 +53,20 @@ footer * {
 
 #enter-options {
     margin-top: 4em;
-    padding: 0 25rem;
+    padding: 0 23rem;
+}
+
+#enter-options div {
+    width: 100%;
+}
+
+#enter-options div a {
+    width: 75%;
 }
 
 #enter-options button{
     min-width: 100px;
+    width: 100%;
     background: transparent;
     border-radius: 0.25rem;
     padding: 0.5rem 0;

@@ -20,8 +20,13 @@ def post(request, profile, title):
             return None
     else:
         return render(request, 'posts/post.html', {'perfil': profile, 'titulo':title})
-"""
-"""
+
+def new_post(request):
+    if not request.user.is_authenticated:
+        return None
+    else:
+        return render(request, 'posts/new_post.html')
+
 def api(request):
     profileGet = request.GET.get('profile', '')
     postGet = request.GET.get('post', '')

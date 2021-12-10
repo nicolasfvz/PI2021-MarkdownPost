@@ -135,8 +135,8 @@ main .container .row section {
 }
 
 #posts {
-    height: 83vh;
-    max-height: 83vh;
+    height: 78vh;
+    max-height: 80vh;
     overflow: auto;
     margin-bottom: 0;
 }
@@ -149,11 +149,13 @@ main .container .row section {
     word-break: break-word;
 }
 
-/* #postOptions {
-    position: absolute;
-    bottom: 0;
-    width: 95%;
-} */
+#postContent {
+
+}
+
+#postOptions {
+    margin-top: var(--gapsize);
+}
 
 #postOptions button {
     background-color: var(--primary);

@@ -149,17 +149,30 @@ main .container .row section {
     word-break: break-word;
 }
 
-#postContent {
-
-}
-
 #postOptions {
     margin-top: var(--gapsize);
 }
 
 #postOptions button {
+    background-color: transparent;
+    color: var(--bs-dark);
+    border: solid 2px var(--primary);
+    padding: 5px 8rem;
+    transition: var(--transition-time);
+}
+
+#postOptions button:hover {
     background-color: var(--primary);
-    color: var(--bs-white);
+    color: var(--bs-light);
+}
+
+#btn-postEdit:hover, #btn-postDelete:hover {
+    color: var(--bs-light);
+    border: solid 2px var(--bs-light);
+}
+
+#postInputContent {
+    height: calc(38rem + .75rem + 2px);
 }
 
 /* CLASSES */
@@ -211,6 +224,9 @@ main .container .row section {
     vertical-align: middle;
 }
 
+.row > form {
+    padding: 0;
+}
 
 /* RESPONSIVE */
 @media (max-width:991.98px) {

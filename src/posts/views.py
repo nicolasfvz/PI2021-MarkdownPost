@@ -2,6 +2,7 @@ import json
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.urls import reverse
 
 from profiles.models import Profile
 
@@ -25,6 +26,19 @@ def new_post(request):
     if not request.user.is_authenticated:
         return None
     else:
+        if request.method == 'POST':
+                
+            title = request.POST["title"]
+            post = request.POST["creatingPost"]
+            
+            if title == "" or post == "":
+                return HttpResponseRedirect(reverse('mainpage:index'))
+            
+            profile = Profile.objects.get(user__username=request.user)
+            new_post = Post(title=title, body=post, author=profile)
+            new_post.save()
+            
+            return HttpResponseRedirect(reverse('mainpage:index'))
         return render(request, 'posts/new_post.html')
 
 def api(request):

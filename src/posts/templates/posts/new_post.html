@@ -91,6 +91,7 @@
 		</section>
 
 		<form method="POST" class="col">
+			{% csrf_token %}
 			<section id="posts" class="balacobaco px-3">
 				
 				<div class="my-3">
@@ -107,7 +108,7 @@
 			</section>
 
 			<div id="postOptions" class="d-flex justify-content-center">
-				<button id="btn-submitPost" type="submit" class="btn"><strong>Submit</strong></button>
+				<button id="btn-submitPost" type="submit" name="jorge" class="btn"><strong>Submit</strong></button>
 			</div>
 		</form>
 

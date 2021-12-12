@@ -23,10 +23,13 @@ def MyProfileView(request):
         return HttpResponseRedirect(reverse('profiles:index'))
     else:
         if request.method == 'POST':
-            a = request.POST["checkbox1"]
             return HttpResponseRedirect(reverse('profiles:index'))
         return render(request, 'profiles/my_profile.html')
 
+def MyLikedRoute(request, name):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('profiles:index'))
+        
 class MainPageView(TemplateView):
     template_name = 'profiles/main.html'
     

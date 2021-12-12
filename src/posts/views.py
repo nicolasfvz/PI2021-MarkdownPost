@@ -1,4 +1,5 @@
 import json
+import markdown
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -9,6 +10,10 @@ from profiles.models import Profile
 from .models import Post
 
 # Create your views here.
+
+def convert_markdown(value):
+    a = markdown.markdown(value)
+    return a
 
 def index(request):
     if not request.user.is_authenticated:
@@ -51,7 +56,7 @@ def api(request):
     data = {}
     for post in qs:
         data['title'] = post.title
-        data['body'] = post.body
+        data['body'] = convert_markdown(post.body)
         data['updated'] = post.updated
         data['created'] = post.created
         

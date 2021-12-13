@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<title>Meu Perfil</title>
+<title>@{{nome}}</title>
 <script type="text/javascript" src="{% static 'profiles/profile.js'%}"></script>
 <link rel="stylesheet" href="{% static 'profiles/profile.css' %}">
 {% endblock %}
@@ -61,19 +61,18 @@
       
       <section id="profile" class="collapse show balacobaco">
         <h2 class="text-center display-6 fw-normal">PROFILE</h2>
-        <div class="d-flex flex-lg-column flex-row justify-content-between align-items-center">
+        <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center">
 
           <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             
             <div id="foto">
               <!-- js injection -->
-
             </div>
 
           </div>
-          <hr class="w-100"><br>
+          <!-- <hr class="w-100"><br> -->
 
-          <div class="d-flex flex-column mx-3 mx-lg-auto">
+          <div class="d-flex flex-column mx-3">
             <span id="username" class="align-self-center fs-5"></span>
             <div id="Infos" class="d-flex justify-content-around">
               <span id="followers"></span>
@@ -83,14 +82,23 @@
             <span id="userbio" class="font-monospace lh-sm"></span>
           </div>
 
+          <div class="d-flex flex-column" id="profileOptions">
+            <button>FOLLOW</button>
+          </div>
+
         </div>
       </section>
-      
-      <section id="posts" class="col balacobaco">
-        <h2 class="text-center">POSTS</h2>
+
+    </div>
+
+    <div class="row">
+
+      <section id="posts" class="balacobaco">
+        <h2 class="text-center display-6 fw-normal">POSTS</h2>
         <div id="postsItems" class="d-flex flex-column">
 
         </div>
+        
       </section>
 
     </div>

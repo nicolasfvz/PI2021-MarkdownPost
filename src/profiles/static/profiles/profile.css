@@ -139,6 +139,7 @@ main .container .row section {
     max-height: 83vh;
     overflow: auto;
     margin-bottom: 0;
+    margin-top: var(--gapsize);
 }
 
 #postsItems a {
@@ -238,17 +239,10 @@ main .container .row section {
 
 /* RESPONSIVE */
 @media (max-width:991.98px) {
-    #profile {
-        margin-bottom: var(--gapsize);
-    }
     #profile hr {
         display: none;
-        /* transform: rotate(90deg) */
+        transform: rotate(90deg)
     }
-
-    /* #followers{
-        
-    } */
 }
 
 
@@ -294,16 +288,15 @@ main .container .row section {
     transition: .5s;
 }
 
-#foto:hover{
+/* #foto:hover{
     transition: .5s;
     transform: translateY(-12px) scale(1.01);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.4);
 
-    /* transform: var(--nao); */
 
     cursor: pointer;
     background-color: black;
-}
+} */
 
 .AAAAAAAA{
     
@@ -315,11 +308,11 @@ main .container .row section {
     /* background-color: black; */
 }
 
-.AAAAAAAA:hover{
+/* .AAAAAAAA:hover{
     opacity:.6;
     filter: blur(1px);
 
-}
+} */
 #foto{
     position: relative;
 }

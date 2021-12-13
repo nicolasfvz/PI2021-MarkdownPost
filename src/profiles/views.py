@@ -7,9 +7,12 @@ from django.urls import reverse
 
 # Create your views here.
 # TODO 
-# Backend : Criar relação entre usuario e outros usuarios
-# Fontend : Criar pagina post e editar post
+# Backend : Fazer o botão de editar post
+# Backend : Fazer o botão de exluir post
+# Backend : Fazer o botão de follow do modal funcionar
+# Backend : Fazer o botão de random page funcionar
 # Frontend : Estilizar os accounts /base.html
+
 
 
 def profile_Test_view(request):
@@ -25,6 +28,12 @@ def MyProfileView(request):
         if request.method == 'POST':
             return HttpResponseRedirect(reverse('profiles:index'))
         return render(request, 'profiles/my_profile.html')
+
+def ProfileView(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('profiles:index'))
+    else:
+        return render(request, 'profiles/profile.html')
 
 def MyLikedRoute(request, name):
     if not request.user.is_authenticated:

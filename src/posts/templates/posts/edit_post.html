@@ -3,7 +3,7 @@
 
 {% block head %}
 	<title>encyclopedia</title>
-	<script type="text/javascript" src="{% static 'posts/post.js'%}"></script>
+	<script type="text/javascript" src="{% static 'posts/edit.js'%}"></script>
 	<script type="text/javascript" src="{% static 'profiles/profiles_my.js'%}"></script>
 	<link rel="stylesheet" href="{% static 'posts/user_post.css' %}">
 {% endblock %}
@@ -90,29 +90,27 @@
 			</div>
 		</section>
 
-		<section id="posts" class="col balacobaco">
-			
-			<h2 id="postTitle" class="text-center display-2">{{titulo}}</h2>
-			<div class="d-flex justify-content-around align-items-center">
-				<p class="small mb-0">Data de publicação: 00/00/00</p>
-				<h3 class="fs-5 mb-0">@{{perfil}}</h3>
-				<p class="small mb-0">Última modificação: 00/00/00</p>
-			</div>				
+		<form method="POST" class="col">
+			{% csrf_token %}
+			<section id="posts" class="balacobaco px-3">
+				
+				<div class="my-3">
+					<input id="postInputTitle" class="form-control form-control-lg" type="text" name="title" maxlength="100" placeholder="TITLE">
+				</div>
 
-			<hr>
+				<hr>
 
-			<div id="postContent" class="px-2">
-				<!-- CONTENT -->
+				<div class="mb-3">
+					<textarea id="postInputContent" content="aaaa" class="form-control" name="creatingPost" placeholder="Write your post here.."></textarea>
+				</div>
+				
+
+			</section>
+
+			<div id="postOptions" class="d-flex justify-content-center">
+				<button id="btn-submitPost" type="submit" name="jorge" class="btn"><strong>Submit</strong></button>
 			</div>
-
-		</section>
-
-		<div id="postOptions" class="d-flex justify-content-center">
-			<a href="{% url 'posts:edit' perfil titulo %}" target="_blank">
-				<button id="btn-postEdit" class="btn me-2 px-5 bg-primary"><strong>Editar</strong></button>
-			</a>
-			<button id="btn-postDelete" class="btn ms-2 px-5 bg-danger"><strong>Excluir</strong></button>
-		</div>
+		</form>
 
 	  </div>
 	</div>

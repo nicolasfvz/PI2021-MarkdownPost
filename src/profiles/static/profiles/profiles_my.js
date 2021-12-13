@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         type: 'GET',
         url: '/profiles/my-profile-json/',
         success: function(response){
-            console.log(response)
 
             /*
             * Negocio do Profile
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
              */
             
             const feed = response.feed
-            console.log(feed)
             feed.forEach(element => {
                 postBody.innerHTML += `
                 <div class="postBlock border-top border-bottom">
@@ -93,9 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             const data = response.profiles_to_follow_list
             var aux = 0
-            console.log(data)
             data.forEach(element => {
-                console.log(element.avatar)
                 toFollowModalBody.innerHTML += `
                 <div class="modal-profile d-flex justify-content-between align-items-center">
                     <img alt="icon" class="avatar ms-2" src="${element.avatar}">

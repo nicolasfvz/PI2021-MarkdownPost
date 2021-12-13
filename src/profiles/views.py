@@ -7,7 +7,6 @@ from django.urls import reverse
 
 # Create your views here.
 # TODO 
-# Backend : Fazer o botão de editar post
 # Backend : Fazer o botão de exluir post
 # Backend : Fazer o botão de follow do modal funcionar
 # Backend : Fazer o botão de random page funcionar
@@ -29,12 +28,25 @@ def MyProfileView(request):
             return HttpResponseRedirect(reverse('profiles:index'))
         return render(request, 'profiles/my_profile.html')
 
-def ProfileView(request):
+def ProfileView(request, profile_name):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('profiles:index'))
     else:
-        return render(request, 'profiles/profile.html')
-
+        return render(request, 'profiles/profile.html', {"nome" : profile_name})
+    
+def ProfileJson(request, profile_name):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('profiles:index'))
+    else:
+        profile = Profile.objects.get(user__username=profile_name)
+        feed = [i.title for i in profile.get_my_post()]
+        return JsonResponse({'name' : f"{profile.user.username}",
+                            'avatar' : f"{profile.avatar.url}",
+                            'bio' : f"{profile.bio}",
+                            'feed' : feed,
+                            'followers' : profile.followers_count, 
+                            'following' : profile.following_count})
+        
 def MyLikedRoute(request, name):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('profiles:index'))
@@ -54,7 +66,7 @@ class RotaDeTesteDoZimmermmann(TemplateView):
     
 def RotaDeTesteDoKrapp(request):
     return HttpResponseRedirect(reverse('profiles:index'))
-    
+
 class MyProfileData(View):
     def get(self, *args, **kwargs):
         if not self.request.user.is_authenticated:

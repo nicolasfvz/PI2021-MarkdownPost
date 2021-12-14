@@ -1,0 +1,506 @@
+/* VARIABLES */
+:root {
+    --primary: #24292f;
+    --secondary: var(--bs-light);
+    /* --background: var(--bs-light); */
+    --background: #f1f1f1;
+    --gapsize: 1rem;
+    --transition-time: 200ms;
+    /* --nao: rotateY(180deg) */
+}
+
+
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+a {text-decoration: none;}
+
+header {
+    background-color: var(--primary);
+    color: var(--bs-white);
+    margin-bottom: var(--gapsize);
+}
+
+main {
+    margin-bottom: var(--gapsize);
+}
+
+main h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+section {
+    background-color: var(--secondary);
+}
+
+footer {
+    background-color: var(--primary);
+    color: var(--bs-light);
+    padding: 1rem 0;
+}
+
+footer * {
+    margin: 0;
+    font-weight: 300px;
+    line-height: 1.2;
+}
+
+main .container .row section {
+    border-radius: 10px;
+    margin-bottom: var(--gapsize);
+}
+
+
+/* IDs */
+#title {
+    margin: 5px 0;
+}
+
+#title a {
+    color: var(--bs-white);
+}
+
+#title a:hover {
+    color: lightblue;
+}
+
+#btn-logout {
+    background-color: var(--bs-danger);
+    border: solid 1px var(--bs-white);
+    color: var(--bs-white);
+    margin-left: 1rem;
+}
+
+#btn-logout:hover {
+    border: solid 1px var(--primary);
+    color: var(--primary);
+}
+
+#profile {
+    /* height: 100%; */
+    /* margin-top: auto; */
+    margin-bottom: auto;
+    margin-right: var(--gapsize);
+}
+
+#profile div {
+    margin-bottom: 1em;
+}
+
+#userbio {
+    text-align: justify;
+}
+
+#profilePic {
+    max-height: 200px;
+    max-width: 200px;
+    min-width: 195px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+#profilePic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+#username {
+    font-weight: bolder;
+}
+
+#profileOptions button{
+    background: transparent;
+    border-radius: 0.25rem;
+    padding: 5px;
+    border: 2px solid var(--primary);
+    margin-bottom: 8px;
+    transition: var(--transition-time);
+}
+
+#profileOptions button:hover {
+    color: var(--bs-light);
+    background: var(--primary);
+}
+
+#posts {
+    height: 83vh;
+    max-height: 83vh;
+    overflow: auto;
+    margin-bottom: 0;
+    margin-top: var(--gapsize);
+}
+
+#postsItems a {
+    color: var(--bs-dark);
+}
+
+
+/* CLASSES */
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-link {
+    color: var(--bs-white);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.collapsing {
+    transition: var(--transition-time);
+}
+
+.postBlock {
+    transition: var(--transition-time);
+}
+
+.postBlock:hover {
+    background-color: #eee;
+    color: var(--bs-light);
+}
+
+.postElements div:nth-child(n) {
+    margin-left: 1rem;
+}
+
+.postUserPic {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;  
+    overflow: hidden;
+    border-radius: 100%;
+    background-color: var(--primary);
+}
+
+.postUserPic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.postUserPic div {
+    vertical-align: middle;
+}
+
+.modal-profile {
+    min-height: 70px;
+}
+
+.modal-profile button {
+    background: transparent;
+    border-radius: 0.25rem;
+    border: 2px solid var(--primary);
+    padding: 0 5px;
+    transition: var(--transition-time);
+}
+
+.modal-profile button:hover {
+    color: var(--bs-light);
+    background: var(--primary);
+}
+
+.modal-profile:hover {
+    background-color: #eee;
+}
+
+.avatar {
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 60%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.modal-profile input {
+    width: 40px;
+    height: 40px;
+}
+
+.modal-profile div button:focus {
+    background: var(--primary);
+    color: var(--bs-light);
+}
+
+/* RESPONSIVE */
+@media (max-width:991.98px) {
+    #profile hr {
+        display: none;
+        transform: rotate(90deg)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.balacobaco{
+    border: 1.2px solid #d1d1d1
+    ;
+}
+
+
+#foto{
+    width: 200px;
+    height: 200px;
+    
+    overflow: hidden;
+    border-radius: 69%;
+
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.6);
+    transition: .5s;
+}
+
+/* #foto:hover{
+    transition: .5s;
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.4);
+
+
+    cursor: pointer;
+    background-color: black;
+} */
+
+.AAAAAAAA{
+    
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    /* image-rendering: pixelated; */
+    /* background-color: black; */
+}
+
+/* .AAAAAAAA:hover{
+    opacity:.6;
+    filter: blur(1px);
+
+} */
+#foto{
+    position: relative;
+}
+
+#foto .cogOverlay{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    margin: 0 auto;
+
+    /* transform: translateY()(-200px) */
+}
+#foto:hover .overlay {
+    opacity: 1;
+  }
+
+#foto .overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-image: url('https://media.discordapp.net/attachments/616695378388975636/916178254472314950/COG.png');
+}
+
+/* TODO adicionar glassmorfismo pra adicionar blur na foto de fundo */
+#foto .overlay:hover{
+    opacity: 0.7;
+
+}
+
+.icon {
+    color: white;
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+
+
+
+/* 
+
+
+!important !important !important !important !important !important !important !important !important !important !important !important
+#caralhoeuodeiobootstrapzimmermaparadecolocaressasmerdaaaaaaaa  !important{ !important !important !important !important !important !important !important !important !important !important !important
+    width: 100px !important;  !important !important !important !important !important !important !important !important !important !important !important
+    height: 100px  !important; !important !important !important !important !important !important !important !important !important !important !important
+ !important !important !important !important !important !important !important !important !important !important !important
+    background-color: red !important; !important !important !important !important !important !important !important !important !important !important !important !important
+     !important !important !important !important !important !important !important !important !important !important !important
+} !important !important !important !important !important !important !important !important !important !important !important
+
+
+
+
+
+
+
+
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+         🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+         🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+         🟥🟥🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟥🟥
+    🟥🟥🟥🟥🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟥🟥
+    🟥🟥🟥🟥🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟥🟥
+    🟥🟥🟥🟥🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟥🟥
+    🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+    🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+    🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+    🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+         🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+         🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+         🟥🟥🟥🟥🟥🟥        🟥🟥🟥🟥🟥🟥
+         🟥🟥🟥🟥🟥🟥        🟥🟥🟥🟥🟥🟥 
+*/

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <title>encyclopedia</title>
+    <link rel="stylesheet" href="{% static 'posts/profiles_my.css' %}">
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row-8">
+      <div class="col-sm-4">
+        Primeira coluna
+      </div>
+      <div class="col-sm-8">
+        Segunda coluna
+      </div>
+    </div>
+    <div class="row-8">
+      <div class="col-sm-4">
+        Primeira coluna
+      </div>
+      <div class="col-sm-8">
+        Segunda coluna
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="{% static 'posts/main.js'%}"></script>
+  
+{% endblock %}

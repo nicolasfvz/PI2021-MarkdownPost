@@ -1,4 +1,6 @@
-__pycache__
+.vscode/
+__pycache__/
 *.pyc
-*.db
-db.sqlite3
+src/media/avatars/*
+src/media/backgrounds/*
+db.*

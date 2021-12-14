@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{% static 'mainpage/custom-welcome.css'%}">
+{% endblock %}
+
+{% block body %}
+
+  <main class="container">
+    <div class="row">
+      <div class="col">
+
+
+        <div class="boxH">
+
+        <h1 class="display-1 text-center">Bem-vindo</h1>
+        <p id="site-description" class="fs-4">
+          O website Markdown Post é feito para que você possa fazer suas 
+          publicações em arquivos .md, ou seja, utiliza a sintaxe da linguagem 
+          de marcação markdown para fazer a formatação da sua publicação.
+        </p>
+
+        <div id="enter-options" class="d-flex flex-column align-items-center">
+
+
+          <div class="d-flex flex-column align-items-center">
+            <a href="{% url 'account_login' %}">
+              <button>LOGIN</button>
+            </a>
+          </div>
+          
+          <div class="d-flex flex-column align-items-center">
+            <a href="{% url 'account_signup' %}">
+              <button>CADASTRO</button>
+            </a>
+          </div>
+
+
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="mt-auto">
+    <div class="container">
+      <div class="row">
+
+        <div class="col">
+          <h4>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</h4>
+        </div>
+        <div class="col">
+          <a href="https://github.com/nicolasfvz/PI2021-MarkdownPost" target="_blank">
+            <img class="float-end" src="{% static 'mainpage/github.svg' %}" alt="GitHub">
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </footer>
+
+<script type="text/javascript" src="{% static 'posts/popper.min.js'%}"></script>  
+{% endblock %}

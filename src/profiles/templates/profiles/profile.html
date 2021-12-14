@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<title>@{{nome}}</title>
+<script type="text/javascript" src="{% static 'profiles/profile.js'%}"></script>
+<link rel="stylesheet" href="{% static 'profiles/profile.css' %}">
+{% endblock %}
+
+{% block body %}
+
+
+<div id="nomeJS"  style="display: none;">{{nome}}</div>
+
+<!-- HEADER -->
+<header class="sticky-lg-top">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+      <button class="navbar-toggler collapsed d-block" id="expandProfile" type="button" data-bs-toggle="collapse"
+        data-bs-target="#profile" aria-controls="profile" aria-expanded="false" aria-label="Show profile">
+        <img src="{% static 'profiles/assets/list.svg' %}" alt="Show Profile">
+      </button>
+
+      <h1 class="navbar-brand fw-bold d-none d-sm-block" id="title">
+        <a href="{% url 'mainpage:index'%}">Markdown Post</a>
+      </h1>
+
+      <button class="navbar-toggler collapsed" id="expandNavbar" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbar-options" aria-controls="navbar-options" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <img src="{% static 'profiles/assets/arrow-bar-down.svg' %}" alt="Expand">
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbar-options">
+        <ul class="navbar-nav text-end">
+          <li class="nav-item">
+            <a href="{% url 'mainpage:index'%}" class="nav-link">HOME</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">RANDOM PAGE</a>
+          </li> -->
+          <li class="nav-item">
+            <a href="{% url 'posts:new_post' %}" class="nav-link">NEW POST</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'account_logout' %}"><button class="btn mt-lg-auto mt-2" id="btn-logout">LOGOUT</button></a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <div class="container">
+    <div class="row">
+      
+      <section id="profile" class="collapse show balacobaco">
+        <h2 class="text-center display-6 fw-normal">PROFILE</h2>
+        <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center">
+
+          <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            
+            <div id="foto">
+              <!-- js injection -->
+            </div>
+
+          </div>
+          <!-- <hr class="w-100"><br> -->
+
+          <div class="d-flex flex-column mx-3">
+            <span id="username" class="align-self-center fs-5"></span>
+            <div id="Infos" class="d-flex justify-content-around">
+              <span id="followers"></span>
+              <span class="mx-2">|</span>
+              <span id="following"></span>
+            </div>
+            <span id="userbio" class="font-monospace lh-sm"></span>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            <div class="d-flex flex-column" id="profileOptions">
+              <button>{{seguir}}</button>
+            </div>
+          </form>
+
+        </div>
+      </section>
+
+    </div>
+
+    <div class="row">
+
+      <section id="posts" class="balacobaco">
+        <h2 class="text-center display-6 fw-normal">POSTS</h2>
+        <div id="postsItems" class="d-flex flex-column">
+
+        </div>
+        
+      </section>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="mt-auto">
+  <div class="container">
+    <div class="row">
+
+      <div class="col">
+        <h4>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</h4>
+      </div>
+      <div class="col">
+        <a href="https://github.com/nicolasfvz/PI2021-MarkdownPost" target="_blank">
+          <img class="float-end" src="{% static 'profiles/assets/github.svg' %}" alt="GitHub">
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+
+{% endblock %}

@@ -1,4 +1,5 @@
-# PI2021-MarkdownPost - Projeto Integrador 301-INFO IFC
+# PI2021-MarkdownPost
+Projeto Integrador 301-INFO IFC
 
 ## Baixar o repositório:
 ```bash

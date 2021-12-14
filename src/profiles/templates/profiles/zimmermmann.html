@@ -1,0 +1,167 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="{% static 'profiles/zimerma.css' %}">
+
+    <!-- Bootstrap -->
+    <title>TESTE</title>
+{% endblock %}
+{% block body %}
+
+	<!-- HEADER -->
+	<header id="header" class="sticky-xl-top">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-sm navbar-dark justify-content-between">
+				<div class="row">
+					<div class="col">
+						<button class="navbar-toggler" id="toggle-profile-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					</div>
+					<div class="col navbar-brand">
+						<a href="#">
+							<img class='logo' src="https://static.vecteezy.com/system/resources/previews/001/198/423/non_2x/diamond-png.png">
+						</a>
+					</div>
+				</div>
+
+				<button class="navbar-toggler" type="button" 
+				data-bs-toggle="collapse" 
+				data-bs-target="#navbarSupportedContent" 
+				aria-controls="navbarSupportedContent" 
+				aria-expanded="false" 
+				aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Random Page</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#">New Post</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Home</a>
+						</li>
+					</ul>
+				</div>
+
+			</nav>
+		</div>
+	</header>
+	
+	<!-- MAIN -->
+	<div class="container-fluid">
+		<div class="row">
+
+		<!-- PROFILE -->
+		<div id="sidebar" class="col-md-4 mg-left_sidebar">
+			<div id="profileInfo" class="d-flex flex-md-column mt-4">
+				
+				<img src="https://static.poder360.com.br/2018/06/25626435_1537039183031743_4121611794287308120_o-868x644.jpg" id="profilePic" class="img-thumbnail">
+
+				<div id="profileData" class="d-flex flex-md-column align-items-center">
+					<span class="display-6 mb-3">@lulor_pt</span>
+					<span>Followers 13</span>
+					<span>Following Sociedade</span>
+				</div>
+				<div id="profileOptions" class="d-flex flex-sm-column align-items-center">
+					<button type="button" class="btn btn-primary">Change Username</button>
+					<button type="button" class="btn btn-primary">Change Password</button>
+				</div>
+			</div>
+			
+		</div>
+
+		<!-- POSTS -->
+		<main id="main" class="col-md">
+
+
+			<div id="hadcontainer">
+
+
+				<div class="card">
+				
+					<div class="profile">
+						<div class="image">
+							<img src="https://i.ytimg.com/vi/sntGta76v6Y/mqdefault.jpg" alt="your computer has virus">
+						</div>
+						<div class="username">
+							you'r computer do has virus
+						</div>
+					</div>
+					
+					<article>
+						apolgy for bad english<br>
+						where were u wen club penguin die<br>
+						i was at house eating dorito when phone ring<br>
+						"Club penguin is kil"<br>	
+						"no"
+					</article>
+
+					<hr>
+
+					<div class="postinfo">
+						-33.33334% Likes
+					</div>
+
+</div>
+
+<div class="card">
+				
+	<div class="profile">
+		<div class="image">
+			<img src="https://i.ytimg.com/vi/sntGta76v6Y/mqdefault.jpg" alt="your computer has virus">
+		</div>
+		<div class="username">
+			you'r computer do has virus
+		</div>
+	</div>
+	
+	<article>
+		Uhm😤 by the way 👩 MOM 🤷‍♀️ They're not 🇨🇳 Chinese cartoons📺💻 it's called😡 ANIME!!!😍😍 GOT IT?!? 😤😠 And they're ❌✋🙅‍♀️ NOT CHINESE!!!🇨🇳 They're JAPANESE!!!🇯🇵 So you'd better apologize 😱🙏👎 to me and my Waifu 👫💏 RIGHT NOW 😠😡
+	</article>
+
+	<hr>
+
+	<div class="postinfo">
+		+100 Social Credits
+	</div>
+
+</div>
+
+			</div>
+
+
+		</main>
+
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<footer class="bg-dark text-light mt-auto ">
+		<h5>hello world!</h5>
+	</footer>
+	
+
+	<!-- JAVASCRIPT -->
+	<script>
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector("#main")
+        document.querySelector("#toggle-profile-button").addEventListener("click", () => {
+            container.classList.toggle("active-nav")
+            sidebar.classList.toggle("active-cont")
+        })
+	</script>
+	
+  </body>
+</html>
+{% endblock %}

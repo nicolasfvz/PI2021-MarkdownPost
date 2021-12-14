@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Meu Perfil</title>
+    <script type="text/javascript" src="{% static 'profiles/profiles.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'profiles/had.css' %}">
+{% endblock %}
+
+{% block body %}
+<div id="feed">
+
+
+  <div id="profile">
+    
+    <div id="background">
+      <img src="https://www.toppapeldeparede.com.br/wp-content/uploads/2021/04/50-Minimalist-Desktop-Wallpapers-and.png" alt="aAAAAAAAAAAAA">
+    </div>
+
+    <div id="userdata">
+      <div id="profile">
+
+        <div id="imgarea">
+          <img src="https://i.pinimg.com/736x/24/8a/ca/248aca97122b713ea14bd35a616cb79d.jpg" alt="Ponei do mecanimais">
+        </div>
+        <div id="arroba"></div>
+
+      <div id="data"></div>
+      </div>
+      <div id="follow"></div>
+    </div>
+
+  </div>
+  <!-- <div id="suggestion"></div> -->
+  <div id="feedfeed"></div>
+
+</div>
+
+<!-- <footer>footer</footer> -->
+
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+	<title>encyclopedia</title>
+	<script type="text/javascript" src="{% static 'posts/post.js'%}"></script>
+	<script type="text/javascript" src="{% static 'profiles/profiles_my.js'%}"></script>
+	<link rel="stylesheet" href="{% static 'posts/user_post.css' %}">
+{% endblock %}
+
+{% block body %}
+	<div id="tituloJS"  style="display: none;">{{titulo}}</div>
+	<div id="profileJS" style="display: none;">{{perfil}}</div>
+
+	<!-- HEADER -->
+	<header class="sticky-md-top">
+		<nav class="navbar navbar-expand-lg">
+		<div class="container">
+
+			<button class="navbar-toggler collapsed d-block" id="expandProfile" type="button" data-bs-toggle="collapse"
+			data-bs-target="#profile" aria-controls="profile" aria-expanded="false" aria-label="Show profile">
+			<img src="{% static 'profiles/assets/list.svg' %}" alt="Show Profile">
+			</button>
+
+			<h1 class="navbar-brand fw-bold d-none d-sm-block" id="title">
+				<a href="{% url 'mainpage:index'%}">Markdown Post</a>
+			</h1>
+
+			<button class="navbar-toggler collapsed" id="expandNavbar" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbar-options" aria-controls="navbar-options" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<img src="{% static 'profiles/assets/arrow-bar-down.svg' %}" alt="Expand">
+			</button>
+
+			<div class="navbar-collapse collapse" id="navbar-options">
+			<ul class="navbar-nav text-end">
+				<li class="nav-item">
+					<a href="{% url 'profiles:my-profile-view' %}" class="nav-link">HOME</a>
+				</li>
+				<!-- <li class="nav-item">
+					<a href="#" class="nav-link">RANDOM PAGE</a>
+				</li> -->
+				<li class="nav-item">
+					<a href="{% url 'posts:new_post' %}" class="nav-link">NEW POST</a>
+				</li>
+				<li class="nav-item">
+					<a href="{% url 'account_logout' %}"><button class="btn mt-lg-auto mt-2" id="btn-logout">LOGOUT</button></a>
+				</li>
+			</ul>
+			</div>
+
+		</div>
+		</nav>
+	</header>
+
+  <!-- MAIN -->
+  <main>
+
+	<div class="container">
+	  <div class="row">
+
+		<section id="profile" class="col-lg-3 collapse balacobaco">
+			<h2 class="text-center display-6 fw-normal">PROFILE</h2>
+			<div class="d-flex flex-lg-column flex-column flex-md-row justify-content-between align-items-center">
+	
+			  <div class="d-flex flex-column mt-lg-2 mt-2 mx-sm-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+				
+				<div id="foto">
+				  <!-- js injection -->
+	
+				</div>
+	
+			  </div>
+			  <hr class="w-100"><br>
+	
+			  <div class="d-flex flex-column mx-3 mx-lg-auto">
+				<span id="username" class="align-self-center fs-5"></span>
+				<div id="Infos" class="d-flex justify-content-around">
+				  <span id="followers"></span>
+				  <span class="mx-2">|</span>
+				  <span id="following"></span>
+				</div>
+				<span id="userbio" class="font-monospace lh-sm"></span>
+			  </div>
+	
+			  <div class="d-flex flex-column" id="profileOptions">
+				<button id="recomendacoes-butao" data-bs-toggle="modal" data-bs-target="#suggestionsModal" >SUGGESTIONS</button>
+			  </div>
+	
+			</div>
+		</section>
+
+		<form method="POST" class="col">
+			{% csrf_token %}
+			<section id="posts" class="balacobaco px-3">
+				
+				<div class="my-3">
+					<input id="postInputTitle" class="form-control form-control-lg" type="text" name="title" maxlength="100" placeholder="TITLE">
+				</div>
+
+				<hr>
+
+				<div class="mb-3">
+					<textarea id="postInputContent" class="form-control" name="creatingPost" placeholder="Write your post here.."></textarea>
+				</div>
+				
+
+			</section>
+
+			<div id="postOptions" class="d-flex justify-content-center">
+				<button id="btn-submitPost" type="submit" name="jorge" class="btn"><strong>Submit</strong></button>
+			</div>
+		</form>
+
+	  </div>
+	</div>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <!-- Coloca aqui o interior do modal-->
+		  <div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">@</span>
+			<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+		  </div>
+
+		  <div class="input-group mb-3">
+			<label class="input-group-text" for="inputGroupFile01">Avatar</label>
+			<input type="file" class="form-control" id="inputGroupFile01">
+		  </div>
+
+		  <div class="input-group">
+			<span class="input-group-text">Bio</span>
+			<textarea class="form-control" aria-label="With textarea"></textarea>
+		  </div>
+
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		  <button type="button" class="btn btn-primary">Understood</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto">
+	<div class="container">
+	  <div class="row">
+
+		<div class="col">
+		  <h4>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</h4>
+		</div>
+		<div class="col">
+		  <a href="https://github.com/nicolasfvz/PI2021-MarkdownPost" target="_blank">
+			<img class="float-end" src="{% static 'profiles/assets/github.svg' %}" alt="GitHub">
+		  </a>
+		</div>
+
+	  </div>
+	</div>
+  </footer>
+
+{% endblock %}

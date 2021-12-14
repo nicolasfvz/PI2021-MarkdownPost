@@ -1,0 +1,93 @@
+/* VARIABLES */
+:root {
+    --primary: #24292f;
+    --secondary: var(--bs-light);
+    --background: #f1f1f1;
+    --gapsize: 1rem;
+    --transition-time: 200ms;
+}
+
+
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+a {text-decoration: none;}
+
+main {
+    margin: 15vh 0;
+}
+
+/* 784100 */
+
+main .col {
+    padding: 0;
+}
+
+footer {
+    background-color: var(--primary);
+    color: var(--bs-light);
+    padding: 1rem 0;
+}
+
+footer * {
+    margin: 0;
+    font-weight: 300px;
+    line-height: 1.2;
+}
+
+
+/* IDs */
+#site-description {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 0 10rem;
+}
+
+#enter-options {
+    margin-top: 4em;
+    padding: 0 23rem;
+}
+
+#enter-options div {
+    width: 100%;
+}
+
+#enter-options div a {
+    width: 75%;
+}
+
+#enter-options button{
+    min-width: 100px;
+    width: 100%;
+    background: transparent;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0;
+    border: 2px solid var(--primary);
+    margin-bottom: 8px;
+    transition: var(--transition-time);
+}
+
+#enter-options button:hover {
+    color: var(--bs-light);
+    background: var(--primary);
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width:991.98px) {
+    #enter-options {
+        padding: 0 20%;
+    }
+    #site-description {
+        padding: 0;
+    }
+}

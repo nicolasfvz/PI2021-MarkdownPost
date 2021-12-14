@@ -93,14 +93,12 @@ document.addEventListener('DOMContentLoaded', function() {
             var aux = 0
             data.forEach(element => {
                 toFollowModalBody.innerHTML += `
-                <div class="modal-profile d-flex justify-content-between align-items-center">
-                    <img alt="icon" class="avatar ms-2" src="${element.avatar}">
-                    <span><strong>@${element.username}</strong></span>
-                    <div>
-                      <button type="submit" class="btn btn-light btn-outline-dark me-3">Follow</button>
-                   </div>
-                    
-                </div>
+                <a href="/profiles/${element.username}">
+                  <div class="modal-profile d-flex justify-content-between align-items-center">
+                      <img alt="icon" class="avatar ms-2" src="${element.avatar}">
+                      <span class="mx-auto"><strong>@${element.username}</strong></span>
+                  </div>
+                </a>
                 `
                 aux++;
             });

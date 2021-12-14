@@ -19,7 +19,7 @@
       </button>
 
       <h1 class="navbar-brand fw-bold d-none d-sm-block" id="title">
-        <a href="{% url 'profiles:my-profile-view' %}">Markdown Post</a>
+        <a href="{% url 'mainpage:index'%}">Markdown Post</a>
       </h1>
 
       <button class="navbar-toggler collapsed" id="expandNavbar" type="button" data-bs-toggle="collapse"
@@ -31,11 +31,11 @@
       <div class="navbar-collapse collapse" id="navbar-options">
         <ul class="navbar-nav text-end">
           <li class="nav-item">
-            <a href="{% url 'mainpage:index'%}" class="nav-link">HOME</a>
+            <a href="{% url 'profiles:my-profile-view' %}" class="nav-link">HOME</a>
           </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">RANDOM PAGE</a>
-          </li>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">RANDOM PAGE</a>
+          </li> -->
           <li class="nav-item">
             <a href="{% url 'posts:new_post' %}" class="nav-link">NEW POST</a>
           </li>
@@ -98,47 +98,45 @@
 
 </main>
 
-<!-- Modal Profile -->
+<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Coloca aqui o interior do modal-->
-        <form method="POST">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
 
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-          </div> 
-        
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupFile01">Avatar</label>
-            <input type="file" class="form-control" id="inputGroupFile01">
-          </div>
-        
-          <div class="input-group">
-            <span class="input-group-text">Bio</span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-          </div>
-        
-        </div>
-      </form>
-      <div class="modal-footer">
-        <!-- Colocar o footer aqui se quieser-->
-      </div>
-    </div>
+		<form enctype="multipart/form-data" method="post" id="profile_form" novalidate="">
+      {% csrf_token %}
+			<div class="modal-body">
+			  <!-- Coloca aqui o interior do modal-->
+
+			  <div class="input-group mb-3">
+				<label class="input-group-text" for="inputGroupFile01">Avatar</label>
+				<input type="file" name="avatar" accept="image/*" class="form-control" id="inputGroupFile01">
+			  </div>
+
+			  <div class="input-group">
+				<span class="input-group-text">Bio</span>
+				<textarea name="bio" class="form-control" aria-label="With textarea"></textarea>
+			  </div>
+
+			</div>
+
+			<div class="modal-footer">
+			  <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Submit</button>
+			</div>
+
+		</form>
+	  </div>
+	</div>
   </div>
-</div>
+
 
 <!-- Modal Sugestions-->
 <div class="modal fade" id="suggestionsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form method="POST">
-      {% csrf_token %}
       <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel">Sugestions</h5>
@@ -152,7 +150,6 @@
           </div>
             <!-- Colocar o footer aqui, se quieser-->
       </div>
-    </form> 
   </div>
 </div>
 

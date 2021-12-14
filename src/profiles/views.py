@@ -25,14 +25,36 @@ def MyProfileView(request):
         return HttpResponseRedirect(reverse('profiles:index'))
     else:
         if request.method == 'POST':
-            return HttpResponseRedirect(reverse('profiles:index'))
+            perfil = Profile.objects.get(user=request.user)
+            perfil.bio = request.POST["bio"] 
+            perfil.avatar = request.FILES["avatar"]
+            perfil.save()       
+            return HttpResponseRedirect(reverse('profiles:my-profile-view'))
         return render(request, 'profiles/my_profile.html')
 
 def ProfileView(request, profile_name):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('profiles:index'))
     else:
-        return render(request, 'profiles/profile.html', {"nome" : profile_name})
+        if request.method == "POST":
+            perfil = Profile.objects.get(user=request.user)
+            perfil_do_link = Profile.objects.get(user__username=profile_name)
+        
+            if perfil_do_link.user in perfil.get_following():
+                perfil.following.remove(perfil_do_link.user)
+                return HttpResponseRedirect(reverse('profiles:my-profile-view'))
+            else:
+                perfil.following.add(perfil_do_link.user)
+                return HttpResponseRedirect(reverse('profiles:my-profile-view'))
+        else:
+                
+            frase = "Follow"
+            perfil = Profile.objects.get(user=request.user)
+            perfil_do_link = Profile.objects.get(user__username=profile_name).user
+
+            if perfil_do_link in perfil.get_following():
+                frase = "Unfollow"
+            return render(request, 'profiles/profile.html', {"nome" : profile_name, "seguir" : frase})
     
 def ProfileJson(request, profile_name):
     if not request.user.is_authenticated:

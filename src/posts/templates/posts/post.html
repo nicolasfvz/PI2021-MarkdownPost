@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-	<title>encyclopedia</title>
+	<title>{{titulo}}</title>
 	<script type="text/javascript" src="{% static 'posts/post.js'%}"></script>
 	<script type="text/javascript" src="{% static 'profiles/profiles_my.js'%}"></script>
 	<link rel="stylesheet" href="{% static 'posts/user_post.css' %}">
@@ -23,7 +23,7 @@
 			</button>
 
 			<h1 class="navbar-brand fw-bold d-none d-sm-block" id="title">
-				<a href="{% url 'profiles:my-profile-view' %}">Markdown Post</a>
+				<a href="{% url 'mainpage:index'%}">Markdown Post</a>
 			</h1>
 
 			<button class="navbar-toggler collapsed" id="expandNavbar" type="button" data-bs-toggle="collapse"
@@ -35,11 +35,11 @@
 			<div class="navbar-collapse collapse" id="navbar-options">
 			<ul class="navbar-nav text-end">
 				<li class="nav-item">
-					<a href="{% url 'mainpage:index'%}" class="nav-link">HOME</a>
+					<a href="{% url 'profiles:my-profile-view' %}" class="nav-link">HOME</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a href="#" class="nav-link">RANDOM PAGE</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
 					<a href="{% url 'posts:new_post' %}" class="nav-link">NEW POST</a>
 				</li>
@@ -84,7 +84,7 @@
 			  </div>
 	
 			  <div class="d-flex flex-column" id="profileOptions">
-				<button id="recomendacoes-butao" data-bs-toggle="modal" data-bs-target="#suggestionsModal" >SUGGESTIONS</button>
+				<button id="recomendacoes-butao" data-bs-toggle="modal" data-bs-target="#suggestionsModal">SUGGESTIONS</button>
 			  </div>
 	
 			</div>
@@ -94,9 +94,9 @@
 			
 			<h2 id="postTitle" class="text-center display-2">{{titulo}}</h2>
 			<div class="d-flex justify-content-around align-items-center">
-				<p class="small mb-0">Data de publicação: 00/00/00</p>
-				<h3 class="fs-5 mb-0">@{{perfil}}</h3>
-				<p class="small mb-0">Última modificação: 00/00/00</p>
+				<!-- <p class="small mb-0">Data de publicação: 00/00/00</p> -->
+				<a id="profileLink" href="{% url 'profiles:profile' perfil %}"><h3 class="fs-5 mb-0">@{{perfil}}</h3></a>
+				<!-- <p class="small mb-0">Última modificação: 00/00/00</p> -->
 			</div>				
 
 			<hr>
@@ -109,9 +109,11 @@
 
 		<div id="postOptions" class="d-flex justify-content-center">
 			<a href="{% url 'posts:edit' perfil titulo %}">
-				<button id="btn-postEdit" class="btn me-2 px-5 bg-primary"><strong>Editar</strong></button>
+				<button id="btn-postEdit" class="btn me-2 px-5"><strong>Editar</strong></button>
 			</a>
-			<button id="btn-postDelete" class="btn ms-2 px-5 bg-danger"><strong>Excluir</strong></button>
+			<a href="{% url 'posts:delete' perfil titulo %}">
+				<button id="btn-postDelete" class="btn ms-2 px-5"><strong>Excluir</strong></button>
+			</a>
 		</div>
 
 	  </div>
@@ -119,40 +121,7 @@
 
   </main>
 
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
-		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-		  <!-- Coloca aqui o interior do modal-->
-		  <div class="input-group mb-3">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-		  </div>
-
-		  <div class="input-group mb-3">
-			<label class="input-group-text" for="inputGroupFile01">Avatar</label>
-			<input type="file" class="form-control" id="inputGroupFile01">
-		  </div>
-
-		  <div class="input-group">
-			<span class="input-group-text">Bio</span>
-			<textarea class="form-control" aria-label="With textarea"></textarea>
-		  </div>
-
-		</div>
-		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button type="button" class="btn btn-primary">Understood</button>
-		</div>
-	  </div>
-	</div>
-  </div>
-
+  
   <!-- FOOTER -->
   <footer class="mt-auto">
 	<div class="container">

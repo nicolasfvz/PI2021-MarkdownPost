@@ -166,14 +166,22 @@ main .container .row section {
     color: var(--bs-light);
 }
 
+#profileLink { color: var(--bs-dark);}
+#profileLink:hover { color: #006AFE;}
+
 #btn-postEdit:hover, #btn-postDelete:hover {
     color: var(--bs-light);
     border: solid 2px var(--bs-light);
 }
 
+#btn-postDelete:hover {background-color: var(--bs-danger);}
+
 #postInputContent {
     height: calc(38rem + .75rem + 2px);
 }
+
+#profileSuggestions .modal-profile span {color: var(--bs-dark);}
+#profileSuggestions .modal-profile span:hover {color: #006AFE;}
 
 /* CLASSES */
 .nav-link:hover {

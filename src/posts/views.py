@@ -42,6 +42,19 @@ def post(request, profile, title):
             return None
     else:
         return render(request, 'posts/post.html', {'perfil': profile, 'titulo':title})
+    
+def delete_post(request, profile, title):
+    if not request.user.is_authenticated:
+            return None
+    else:
+        if exact_post(profile, title) == False:
+            return HttpResponseRedirect(reverse('mainpage:index'))
+        else:
+            perfil = Profile.objects.filter(user__username=profile).first()
+            if perfil.user != request.user:
+                return HttpResponseRedirect(reverse('profiles:my-profile-view'))
+            post_que_ta_querendo = Post.objects.filter(title=title, author=perfil).delete()
+            return HttpResponseRedirect(reverse('profiles:my-profile-view'))
 
 def edit_post(request, profile, title):
     if not request.user.is_authenticated:

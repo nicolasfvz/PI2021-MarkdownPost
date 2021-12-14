@@ -23,7 +23,7 @@
 			</button>
 
 			<h1 class="navbar-brand fw-bold d-none d-sm-block" id="title">
-				<a href="{% url 'profiles:my-profile-view' %}">Markdown Post</a>
+				<a href="{% url 'mainpage:index'%}">Markdown Post</a>
 			</h1>
 
 			<button class="navbar-toggler collapsed" id="expandNavbar" type="button" data-bs-toggle="collapse"
@@ -35,11 +35,11 @@
 			<div class="navbar-collapse collapse" id="navbar-options">
 			<ul class="navbar-nav text-end">
 				<li class="nav-item">
-					<a href="{% url 'mainpage:index'%}" class="nav-link">HOME</a>
+					<a href="{% url 'profiles:my-profile-view' %}" class="nav-link">HOME</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a href="#" class="nav-link">RANDOM PAGE</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
 					<a href="{% url 'posts:new_post' %}" class="nav-link">NEW POST</a>
 				</li>
